@@ -1,0 +1,21 @@
+import Link from "next/link";
+
+export default function Greetings() {
+  return (
+    <div className="App">
+        <button className="contactsFloatingBtn"><Link href="/">
+          <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
+        </Link></button>
+        <div className="basketCont">
+            <div className="basketCenterTextCont">
+              <p className="basketCenterText">
+                Заказ оформлен
+              </p>
+              <p className="basketCenterText">
+                Ждите звонка или сообщения в WhatsApp
+              </p>
+            </div>
+        </div>
+    </div>
+  )
+}

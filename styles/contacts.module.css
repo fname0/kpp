@@ -1,0 +1,4 @@
+.yaFirst {position:relative;overflow:hidden;display: flex; align-items: center;justify-content: center;}
+.yaSecond {color:#eee;font-size:12px;position:absolute;top:0px;}
+.yaThird {color:#eee;font-size:12px;position:absolute;top:14px;}
+.yaFourth {position: relative;}
