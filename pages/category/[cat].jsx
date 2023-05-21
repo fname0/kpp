@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
 import Link from "next/link";
 import CatalogCards from "../../components/CatalogCards";
+import axios from "axios";
 
 export default function ({products}) {
   const router = useRouter();
