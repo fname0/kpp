@@ -44,7 +44,7 @@ export default function Search({products}) {
 }
 
 export async function getStaticProps() {
-    const response = await fetch(`http://95.174.102.106:7474/getproducts.php`);
+    const response = await fetch(`https://db-lovat.vercel.app/api/getproducts.php`);
     const products = await response.json();
     return {
         props: {products},
