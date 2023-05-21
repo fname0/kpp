@@ -9,7 +9,7 @@ export default class BasketCards extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`http://95.174.102.106:7474/basket.php?ids=`+this.props.ids)
+    axios.get(`https://db-lovat.vercel.app/api/basket.php?ids=`+this.props.ids)
       .then(res => {
         const products = res.data;
         this.setState({ products });
