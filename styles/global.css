@@ -189,11 +189,6 @@ backdrop-filter: blur(0px);
 }
 
 .categoryCont {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
     padding-top: 16px;
     background-image: url('../public/imgs/kamazHeader.jpg');
     background-size: cover;
@@ -201,6 +196,14 @@ backdrop-filter: blur(0px);
     background-attachment: fixed;
     color: white;
     min-height: 100svh;
+}
+
+.categoryCont::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 .productCardCont {
