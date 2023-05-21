@@ -64,7 +64,7 @@ export default function ({product}) {
 
 export async function getServerSideProps(content) {
     const id = content.query['id'];
-    const response = await fetch(`http://95.174.102.106:7474/getproductinfo.php?id=`+id);
+    const response = await fetch(`https://db-lovat.vercel.app/api/getproductinfo.php?id=`+id);
     const product = await response.json();
     return {
         props: {product},
