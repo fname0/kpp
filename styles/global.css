@@ -195,7 +195,7 @@ backdrop-filter: blur(0px);
     background-position: center center;
     background-attachment: fixed;
     color: white;
-    min-height: 100lvh;
+    min-height: 100vh;
 }
 
 .productCardCont {
