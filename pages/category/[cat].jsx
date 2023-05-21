@@ -6,6 +6,7 @@ import CatalogCards from "../../components/CatalogCards";
 import axios from "axios";
 
 export default function ({products}) {
+  const [productsToRender, setProductsToRender] = useState(products);
   const router = useRouter();
   const [cookie, setCookies] = useState();
   const [basketCount, setBasketCount] = useState();
@@ -19,7 +20,7 @@ export default function ({products}) {
     setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length);
     axios.get(`https://db-lovat.vercel.app/api/getAllProducts.php?cat=`+cat)
     .then(res => {
-      products = res.data
+      setProductsToRender(res.data);
     })
   }, [])
 
@@ -44,7 +45,7 @@ export default function ({products}) {
         </Link></button>
         <div className="categoryCont">
             <h1 className="homeHeader">{catName[cat]}</h1>
-            <CatalogCards cat={cat} addBasket={addBasket} products={products} searchValue={searchValue}/>
+            <CatalogCards cat={cat} addBasket={addBasket} products={productsToRender} searchValue={searchValue}/>
         </div>
     </div>
   )
