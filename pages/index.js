@@ -37,7 +37,7 @@ export default function Index() {
                     <div className="homeCardImgCont">
                         <img src='/imgs/about.png' alt="" className="homeCardImg"/>
                     </div>
-                    <h2 className="homeCardHeader">ТАТАА</h2>
+                    <h2 className="homeCardHeader">О нас</h2>
                 </div></Link>
                 <Link href="/catalog" className='noDec'><div className="homeCard">
                     <div className="homeCardImgCont">
