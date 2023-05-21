@@ -16,14 +16,10 @@ export default function ({products}) {
     const cookie = new Cookies();
     setCookies(cookie);
     setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length);
-    // axios.get(`https://db-lovat.vercel.app/api/getAllProducts.php?cat=`+cat)
-    // .then(res => {
-    //   const product = res.data;
-    //   this.state.product = product;
-    //   this.state.product.price = product.price;
-    //   this.setState(this.state);
-    // })
-    console.log(cat);
+    axios.get(`https://db-lovat.vercel.app/api/getAllProducts.php?cat=`+cat)
+    .then(res => {
+      products = res.data
+    })
   }, [])
 
   const addBasket = (id, isClicked, setIsClicked) => {
