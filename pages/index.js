@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Cookies from 'universal-cookie';
-import MainContainer from '../components/MainContainer';
+import MainContainer from '../../components/MainContainer';
 
 export default function Index() {
     const [basketCount, setBasketCount] = useState();
