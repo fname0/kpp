@@ -3,13 +3,6 @@ import { useEffect, useState } from 'react';
 import Cookies from 'universal-cookie';
 import Head from "next/head";
 
-function hh() {
-    <Head>
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <title>тест</title>
-    </Head>
-}
-
 export default function Index() {
     const [basketCount, setBasketCount] = useState();
     const [isDesktop, setIsDesktop] = useState(false);
@@ -23,7 +16,11 @@ export default function Index() {
 
   return (
     <>
-    <hh/>
+    <Head>
+        <link rel="shortcut icon" href="/favicon.ico"/>
+        <title>Запчасти для КАМАЗА по дешёвым ценам | Набережные Челны</title>
+        <meta name='description' content='Купить запчасти для КамАЗ по дешёвым ценам: редуктор, КПП, сцепление, кулиса, метизы, датчики, РТИ, подшипники, ZF'/>
+    </Head>
     <div className="App">
         <div className="homeSearchInputCont">
             <input type="text" className="homeSearchInput" placeholder="Поиск..." onChange={event => {searchValue=event.target.value}}/>
