@@ -17,7 +17,7 @@ export default function Index() {
   return (
     <>
     <Head>
-        <link rel="shortcut icon" href="/favicon.ico"/>
+        <link rel="icon" type='image/png' sizes='32x32' href="/favicon.png"/>
         <title>Запчасти для КАМАЗА по дешёвым ценам | Набережные Челны</title>
         <meta name='description' content='Купить запчасти для КамАЗ по дешёвым ценам: редуктор, КПП, сцепление, кулиса, метизы, датчики, РТИ, подшипники, ZF'/>
     </Head>
