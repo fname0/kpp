@@ -17,7 +17,7 @@ export default function Index() {
   return (
     <>
     <Head>
-        <link rel="icon" type='image/png' sizes='32x32' href="/favicon.png"/>
+        <link rel="icon" type='image/svg' href="/favicon.svg"/>
         <title>Всё на КПП КАМАЗ</title>
         <meta name='description' content='Купить запчасти для КамАЗ по дешёвым ценам: редуктор, КПП, сцепление, кулиса, метизы, датчики, РТИ, подшипники, ZF'/>
     </Head>
