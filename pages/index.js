@@ -15,7 +15,9 @@ export default function Index() {
     }, [])
 
   return (
-    <MainContainer className="App">
+    <>
+    <MainContainer></MainContainer>
+    <div className="App">
         <div className="homeSearchInputCont">
             <input type="text" className="homeSearchInput" placeholder="Поиск..." onChange={event => {searchValue=event.target.value}}/>
             <div className="homeSearchImgCont" onClick={() => {window.location="/search?searchValue="+searchValue}}>
@@ -62,6 +64,7 @@ export default function Index() {
             </div>
         </div>
         </div>
-    </MainContainer>
+    </div>
+    </>
   )
 }
