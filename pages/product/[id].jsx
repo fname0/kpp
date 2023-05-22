@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Cookies from 'universal-cookie';
+import Head from "next/head";
 
 export default function ({product}) {
     console.log(product);
@@ -34,6 +35,12 @@ export default function ({product}) {
     }, [])
 
     return (
+        <>
+        <Head>
+            <link rel="icon" type='image/png' sizes='32x32' href="/favicon.png"/>
+            <title>{product.title}({product.num}) за {product.price}</title>
+            <meta name='description' content={'Купить '+product.title+'('+product.num+')'+' за '+product.price}/>
+        </Head>
         <div className="App">
             <button className="contactsFloatingBtn"><Link href="/">
                 <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
@@ -59,6 +66,7 @@ export default function ({product}) {
             </div>
             </div>
         </div>
+        </>
     )
 }
 

@@ -18,7 +18,7 @@ export default function Index() {
     <>
     <Head>
         <link rel="icon" type='image/png' sizes='32x32' href="/favicon.png"/>
-        <title>Запчасти для КАМАЗА по дешёвым ценам | Набережные Челны</title>
+        <title>Всё на КПП КАМАЗ</title>
         <meta name='description' content='Купить запчасти для КамАЗ по дешёвым ценам: редуктор, КПП, сцепление, кулиса, метизы, датчики, РТИ, подшипники, ZF'/>
     </Head>
     <div className="App">
