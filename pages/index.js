@@ -1,7 +1,14 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Cookies from 'universal-cookie';
-import MainContainer from '../components/MainContainer';
+import Head from "next/head";
+
+function hh() {
+    <Head>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <title>тест</title>
+    </Head>
+}
 
 export default function Index() {
     const [basketCount, setBasketCount] = useState();
@@ -16,7 +23,7 @@ export default function Index() {
 
   return (
     <>
-    <MainContainer></MainContainer>
+    <hh/>
     <div className="App">
         <div className="homeSearchInputCont">
             <input type="text" className="homeSearchInput" placeholder="Поиск..." onChange={event => {searchValue=event.target.value}}/>
