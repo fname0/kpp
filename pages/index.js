@@ -19,10 +19,7 @@ export default function Index() {
         <Head>
             <title>Всё на КПП КАМАЗ</title>
             <meta name='description' content='Купить запчасти для КамАЗ по дешёвым ценам: редуктор, КПП, сцепление, кулиса, метизы, датчики, РТИ, подшипники, ZF'/>
-            <meta
-            property="og:image"
-            content="https://kpp116.ru/favicon.png"
-            />
+            <link rel="icon" href="/favicon.png" sizes="any" />
         </Head>
 
         <div className="homeSearchInputCont">
