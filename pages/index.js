@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Cookies from 'universal-cookie';
-import Head from "next/head";
 
 export default function Index() {
     const [basketCount, setBasketCount] = useState();
@@ -15,12 +14,6 @@ export default function Index() {
     }, [])
 
   return (
-    <>
-    <Head>
-        <link rel="icon" type='image/png' href="/favicon.png"/>
-        <title>Всё на КПП КАМАЗ</title>
-        <meta name='description' content='Купить запчасти для КамАЗ по дешёвым ценам: редуктор, КПП, сцепление, кулиса, метизы, датчики, РТИ, подшипники, ZF'/>
-    </Head>
     <div className="App">
         <div className="homeSearchInputCont">
             <input type="text" className="homeSearchInput" placeholder="Поиск..." onChange={event => {searchValue=event.target.value}}/>
@@ -69,6 +62,5 @@ export default function Index() {
         </div>
         </div>
     </div>
-    </>
   )
 }
