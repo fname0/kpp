@@ -1,10 +1,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Cookies from 'universal-cookie';
-
-export const metadata = {
-    title: 'Всё на КПП КАМАЗ'
-}
+import Head from "next/head";
 
 export default function Index() {
     const [basketCount, setBasketCount] = useState();
@@ -19,6 +16,12 @@ export default function Index() {
 
   return (
     <div className="App">
+        <Head>
+            <link rel="icon" type='image/png' href="/favicon.png"/>
+            <title>Всё на КПП КАМАЗ</title>
+            <meta name='description' content='Купить запчасти для КамАЗ по дешёвым ценам: редуктор, КПП, сцепление, кулиса, метизы, датчики, РТИ, подшипники, ZF'/>
+        </Head>
+
         <div className="homeSearchInputCont">
             <input type="text" className="homeSearchInput" placeholder="Поиск..." onChange={event => {searchValue=event.target.value}}/>
             <div className="homeSearchImgCont" onClick={() => {window.location="/search?searchValue="+searchValue}}>
