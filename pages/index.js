@@ -17,9 +17,12 @@ export default function Index() {
   return (
     <div className="App">
         <Head>
-            <link rel="icon" type='image/png' href="/favicon.png"/>
             <title>Всё на КПП КАМАЗ</title>
             <meta name='description' content='Купить запчасти для КамАЗ по дешёвым ценам: редуктор, КПП, сцепление, кулиса, метизы, датчики, РТИ, подшипники, ZF'/>
+            <meta
+            property="og:image"
+            content="https://kpp116.ru/favicon.png"
+            />
         </Head>
 
         <div className="homeSearchInputCont">
