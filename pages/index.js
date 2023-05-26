@@ -2,6 +2,10 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Cookies from 'universal-cookie';
 
+export const metadata = {
+    title: 'Всё на КПП КАМАЗ'
+}
+
 export default function Index() {
     const [basketCount, setBasketCount] = useState();
     const [isDesktop, setIsDesktop] = useState(false);
