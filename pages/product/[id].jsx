@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Cookies from 'universal-cookie';
-import Head from "next/head";
+import Seo from '../../components/Seo';
 
 export default function ({product}) {
     console.log(product);
@@ -35,13 +35,9 @@ export default function ({product}) {
     }, [])
 
     return (
-        <>
-        <Head>
-            <link rel="icon" type='image/png' sizes='32x32' href="/favicon.png"/>
-            <title>{product.title}({product.num}) за {product.price}</title>
-            <meta name='description' content={'Купить '+product.title+'('+product.num+')'+' за '+product.price}/>
-        </Head>
         <div className="App">
+            <Seo title={product.title+'('+product.num+') за '+ product.price+'₽'} description={'Купить '+product.title+'('+product.num+')'+' за '+product.price+"₽"} keywords={"запчасти камаз, купить запчасти камаз, "+product.title+", "+product.num+", "+{"reductor": "Редукторы", "kpp": "КПП", "scepa": "Сцепление(+кулиса)", "metiz": "Метизы(+датчики, РТИ)", "podshib": "Подшипники", "ZF": "ZF"}[product.cat]}/>
+
             <button className="contactsFloatingBtn"><Link href="/">
                 <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
             </Link></button>
@@ -66,7 +62,6 @@ export default function ({product}) {
             </div>
             </div>
         </div>
-        </>
     )
 }
 
