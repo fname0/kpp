@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Cookies from 'universal-cookie';
-import Head from "next/head";
+import Seo from '../components/Seo';
 
 export default function Index() {
     const [basketCount, setBasketCount] = useState();
@@ -16,11 +16,7 @@ export default function Index() {
 
   return (
     <div className="App">
-        <Head>
-            <title>Всё на КПП КАМАЗ</title>
-            <meta name='description' content='Купить запчасти для КамАЗ по дешёвым ценам: редуктор, КПП, сцепление, кулиса, метизы, датчики, РТИ, подшипники, ZF'/>
-            <link rel="icon" href="/favicon.png" sizes="any" />
-        </Head>
+        <Seo title="Всё на КПП КАМАЗ" description="Купить запчасти для КамАЗ по дешёвым ценам: редуктор, КПП, сцепление, кулиса, метизы, датчики, РТИ, подшипники, ZF" keywords="запчасти камаз, кпп камаз, коробка передач камаз, сцепление камаз, купить детали камаз, мост камаз, клапан камаз"/>
 
         <div className="homeSearchInputCont">
             <input type="text" className="homeSearchInput" placeholder="Поиск..." onChange={event => {searchValue=event.target.value}}/>
