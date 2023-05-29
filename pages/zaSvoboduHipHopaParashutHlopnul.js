@@ -14,20 +14,14 @@ export default function ZaSvoboduHipHopaParashutHlopnul() {
 
     const deleteOrder = (id) => {
         axios.get(`http://95.174.102.106:7474/deleteorder.php?id=`+id);
-        const orders = this.state.orders;
-        console.log(id);
         delete orders[id];
-        this.state.orders = orders;
-        this.setState(this.state);
+        setOrders(orders);
     }
 
     const deleteOrderRepair = (id, rawId) => {
         axios.get(`http://95.174.102.106:7474/deleterepair.php?id=`+id);
-        const orders = this.state.orders;
-        console.log(rawId);
         delete orders[rawId];
-        this.state.orders = orders;
-        this.setState(this.state);
+        setOrders(orders);
     }
 
     return (
