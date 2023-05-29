@@ -20,7 +20,7 @@ export default function ({product}) {
 
     const tryRequire = () => {
         try {
-            require('../productImg/'+props.id+'.png');
+            require('../../public/productImg/'+props.id+'.png');
             return '/productImg/'+props.id+".png";
         } catch (err) {
             return '/imgs/noImg.svg';
