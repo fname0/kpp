@@ -4,7 +4,6 @@ import Cookies from 'universal-cookie';
 import Seo from '../../components/Seo';
 
 export default function ({product}) {
-    console.log(props.id);
     const [cookie, setCookie] = useState();
     const [purchased, setPurchased] = useState();
     const [basketCount, setBasketCount] = useState();
