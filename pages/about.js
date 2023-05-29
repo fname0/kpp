@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
+import Seo from "../components/Seo";
 
 export default function About() {
   const [basketCount, setBasketCount] = useState();
