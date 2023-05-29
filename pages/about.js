@@ -12,6 +12,8 @@ export default function About() {
 
   return (
     <div className="App">
+        <Seo title="О нас|Всё на КПП КАМАЗ" description='Информация о компании "Всё на КПП"' keywords="запчасти камаз, купить запчасти камаз, всё на кпп"/>
+
         <button className="contactsFloatingBtn"><Link href="/">
           <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
         </Link></button>
