@@ -1,45 +1,45 @@
+import React from 'react';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 
-export default function AdminChangeProduct() {
-  const [product, setProduct] = useState([]);
-  const [file, setFile] = useState(null);
+export default class vyrvisIzTelaVEtotOgromniiMir extends React.Component {
+  state = {
+    product: [],
+    file: null
+  }
 
-  useEffect(() => {
+  componentDidMount() {
     axios.get(`https://db-lovat.vercel.app/api/getproductinfo.php?id=`+new URLSearchParams(window.location.search).get('id'))
       .then(res => {
-        setProduct(res.data);
-      })
-  }, [])
-
-    const launchData = () => {
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('product', JSON.stringify(product));
-        axios.post(`https://db-lovat.vercel.app/api/setproductinfo.php`, formData)
-    }
-
-    const hh = (pr) => {
-        setProduct(pr);
+        const product = res.data;
+        this.state.product = product;
+        this.state.product.price = product.price;
         this.setState(this.state);
-    }
+      })
+  }
 
+  launchData(state) {
+    const formData = new FormData();
+    formData.append('file', state.file);
+    formData.append('product', JSON.stringify(state.product));
+    axios.post(`https://db-lovat.vercel.app/api/setproductinfo.php`, formData)
+  }
+
+  render() {
     return (
         <div className="App">
             <div className="cont">
             <div className="adminChangeProductCont">
-                {product.num === "154-1601215" ? <p>hi</p> : <p>hhe</p>}
-                {product.out === "False" ? <p>hi</p> : <p>hhe</p>}
-                {product.out === undefined ? product.out = false : null}
-                <h1 className="homeHeader"><span role='textbox' type="text" contentEditable onBlur={(event) => {product.title=event.currentTarget.innerHTML}} suppressContentEditableWarning={true}>{product.title}</span></h1>
-                <h1 className="homeHeader"><span role='textbox' type="text" contentEditable onBlur={(event) => {product.num=event.currentTarget.innerHTML}} suppressContentEditableWarning={true}>{product.num}</span></h1>
-                <h1 className="homeHeader"><span role='textbox' type="text" contentEditable onBlur={(event) => {product.price=event.currentTarget.innerHTML}} suppressContentEditableWarning={true}>{product.price}</span>₽</h1>
-                {product.out === "False" ? <h1 className="homeHeader"><input type="checkbox" name="" id="" className={"fullCheckbox"} checked onChange={() => {product.out = "True";console.log(product);hh(product);}}/> В наличии</h1> 
-                : <h1 className="homeHeader"><input type="checkbox" name="" id="" className={"fullCheckbox"} onChange={() => {product.out = "False";setProduct(product)}}/> Не в наличии</h1>}
-                <h1 className='homeHeader'><input accept="image/*" multiple type="file" name="" id="" onChange={e => {setFile(e.target.files[0])}} /></h1>
+              {this.state.product.out === undefined ? this.state.product.out = false : null}
+                <h1 className="homeHeader"><span role='textbox' type="text" contentEditable onBlur={(event) => {this.state.product.title=event.currentTarget.innerHTML}} suppressContentEditableWarning={true}>{this.state.product.title}</span></h1>
+                <h1 className="homeHeader"><span role='textbox' type="text" contentEditable onBlur={(event) => {this.state.product.num=event.currentTarget.innerHTML}} suppressContentEditableWarning={true}>{this.state.product.num}</span></h1>
+                <h1 className="homeHeader"><span role='textbox' type="text" contentEditable onBlur={(event) => {this.state.product.price=event.currentTarget.innerHTML}} suppressContentEditableWarning={true}>{this.state.product.price}</span>₽</h1>
+                {this.state.product.out === "False" ? <h1 className="homeHeader"><input type="checkbox" name="" id="" className={"fullCheckbox"} checked onChange={() => {this.state.product.out = "True";this.setState(this.state)}}/> В наличии</h1> 
+                : <h1 className="homeHeader"><input type="checkbox" name="" id="" className={"fullCheckbox"} onChange={() => {this.state.product.out = "False";this.setState(this.state)}}/> Не в наличии</h1>}
+                <h1 className='homeHeader'><input accept="image/*" multiple type="file" name="" id="" onChange={e => {this.state.file = e.target.files[0];this.setState(this.state)}} /></h1>
             </div>
-            <button className="basketBuyBtn" onClick={() => launchData()}>Изменить</button>
+            <button className="basketBuyBtn" onClick={() => this.launchData(this.state)}>Изменить</button>
             </div>
         </div>
     );
+  }
 }
