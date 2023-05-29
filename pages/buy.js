@@ -2,6 +2,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
+import Seo from "../components/Seo";
 
 export default function Buy() {
     const [productsCount, setProductsCount] = useState();
@@ -29,6 +30,8 @@ export default function Buy() {
 
     return (
         <div className="App">
+            <Seo title="Оформление заказа" description="Оформить заказ" keywords="оформление заказа"/>
+
             <button className="contactsFloatingBtn"><Link href="/">
             <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
         </Link></button>

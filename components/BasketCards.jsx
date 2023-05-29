@@ -60,7 +60,7 @@ export default class BasketCards extends React.Component {
         this.state.productsPriceSum+=parseInt(product.price*(productsCount[product.id] === undefined ? 1 : productsCount[product.id]));
       })}
         {cookies.get('basket') ?
-        <p className='basketSumText'>Всего: {this.state.productsPriceSum}</p> : null }
+        <p className='basketSumText'>Всего: {this.state.productsPriceSum}₽</p> : null }
         {cookies.get('basket') ?
         <button className="basketBuyBtn" onClick={() => {cookies.set('productsPriceSum', this.state.productsPriceSum); window.location = "/buy"}}>Оформить</button> : null }
         </div>
