@@ -2,7 +2,7 @@ import axios from 'axios';
 import AdminCard from '../components/AdminCard';
 import { useEffect, useState } from 'react';
 
-export default function ZaSvoboduHipHopaParashutHlopnul {
+export default function ZaSvoboduHipHopaParashutHlopnul() {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
