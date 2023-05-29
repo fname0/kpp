@@ -21,6 +21,7 @@ export default function AdminChangeProduct() {
 
     const hh = (pr) => {
         setProduct(pr);
+        this.setState(this.state);
     }
 
     return (
