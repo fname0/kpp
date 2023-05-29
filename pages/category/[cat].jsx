@@ -4,6 +4,7 @@ import Cookies from "universal-cookie";
 import Link from "next/link";
 import CatalogCards from "../../components/CatalogCards";
 import axios from "axios";
+import Seo from "../../components/Seo";
 
 export default function ({products}) {
   const [productsToRender, setProductsToRender] = useState(products);
