@@ -13,6 +13,8 @@ export default function Contacts() {
 
   return (
     <div className="App">
+      <Seo title="Контакты|Всё на КПП" description="Контакты компании «Всё на КПП»" keywords="запчасти камаз, купить запчасти камаз, контакты"/>
+
       <button className="contactsFloatingBtn"><Link href="/">
           <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
         </Link></button>

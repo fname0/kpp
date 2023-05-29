@@ -26,6 +26,8 @@ export default function Search({products}) {
 
   return (
     <div className="App">
+        <Seo title="Поиск товара|Всё на КПП" description="Искать нужный товар в магазине «Всё на КПП»" keywords="запчасти камаз, купить запчасти камаз, всё на кпп, поиск товара, каталог, каталог товаров, купить кпп, купить детали камаз, детали камаз"/>
+
         <button className="contactsFloatingBtn"><Link href="/">
           <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
         </Link></button>

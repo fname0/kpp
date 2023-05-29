@@ -3,6 +3,8 @@ import Link from "next/link";
 export default function Greetings() {
   return (
     <div className="App">
+        <Seo title="Заказ оформлен|Всё на КПП" description="Поздравляем, ваш заказ оформлен!" keywords="запчасти камаз"/>
+
         <button className="contactsFloatingBtn"><Link href="/">
           <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
         </Link></button>

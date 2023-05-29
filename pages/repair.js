@@ -24,6 +24,8 @@ export default function Repair() {
 
     return (
         <div className="App">
+            <Seo title="Заявка на ремонт/сборку|Всё на КПП" description="Отправить заявку на ремонт или сборку коробки перемены передач (КПП)" keywords="запчасти камаз, всё на кпп, ремонт кпп, сборка кпп, собрать кпп, отремонтировать кпп, ремонт коробки передач, сборка коробки передач"/>
+
             <button className="contactsFloatingBtn"><Link href="/">
                 <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
             </Link></button>
