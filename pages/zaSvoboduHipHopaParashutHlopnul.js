@@ -1,37 +1,33 @@
 import axios from 'axios';
 import AdminCard from '../components/AdminCard';
+import { useEffect, useState } from 'react';
 
-export default class ZaSvoboduHipHopaParashutHlopnul extends React.Component {
-  state = {
-    orders: []
-  }
+export default function ZaSvoboduHipHopaParashutHlopnul {
+    const [orders, setOrders] = useState([]);
 
-  componentDidMount() {
+    useEffect(() => {
     axios.get(`http://95.174.102.106:7474/getorders.php`)
-      .then(res => {
-        const orders = res.data;
-        console.log(orders)
-        this.setState({ orders });
-      })
-  }
+        .then(res => {
+            setOrders(res.data);
+        })
+    }, [])
 
-  render() {
     const deleteOrder = (id) => {
-      axios.get(`http://95.174.102.106:7474/deleteorder.php?id=`+id);
-      const orders = this.state.orders;
-      console.log(id);
-      delete orders[id];
-      this.state.orders = orders;
-      this.setState(this.state);
+        axios.get(`http://95.174.102.106:7474/deleteorder.php?id=`+id);
+        const orders = this.state.orders;
+        console.log(id);
+        delete orders[id];
+        this.state.orders = orders;
+        this.setState(this.state);
     }
 
     const deleteOrderRepair = (id, rawId) => {
-      axios.get(`http://95.174.102.106:7474/deleterepair.php?id=`+id);
-      const orders = this.state.orders;
-      console.log(rawId);
-      delete orders[rawId];
-      this.state.orders = orders;
-      this.setState(this.state);
+        axios.get(`http://95.174.102.106:7474/deleterepair.php?id=`+id);
+        const orders = this.state.orders;
+        console.log(rawId);
+        delete orders[rawId];
+        this.state.orders = orders;
+        this.setState(this.state);
     }
 
     return (
@@ -41,5 +37,4 @@ export default class ZaSvoboduHipHopaParashutHlopnul extends React.Component {
             ))}
         </div>
     );
-  }
 }
