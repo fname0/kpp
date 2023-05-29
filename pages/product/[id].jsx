@@ -4,7 +4,7 @@ import Cookies from 'universal-cookie';
 import Seo from '../../components/Seo';
 
 export default function ({product}) {
-    console.log(product);
+    console.log(props.id);
     const [cookie, setCookie] = useState();
     const [purchased, setPurchased] = useState();
     const [basketCount, setBasketCount] = useState();
@@ -20,8 +20,8 @@ export default function ({product}) {
 
     const tryRequire = () => {
         try {
-            require('../public/productImg/'+props.id+'.png');
-            return '/productImg/'+props.id+".png";
+            require('../../public/productImg/'+product.id+'.png');
+            return '/productImg/'+product.id+".png";
         } catch (err) {
             return '/imgs/noImg.svg';
         }
