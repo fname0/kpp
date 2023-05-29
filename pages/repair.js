@@ -2,6 +2,7 @@ import Cookies from "universal-cookie";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Seo from "../components/Seo";
 
 export default function Repair() {
     const [basketCount, setBasketCount] = useState();

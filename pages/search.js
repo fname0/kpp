@@ -3,6 +3,7 @@ import CatalogCards from "../components/CatalogCards";
 import Cookies from "universal-cookie";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Seo from "../components/Seo";
 
 export default function Search({products}) {
     const router = useRouter();

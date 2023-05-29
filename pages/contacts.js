@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from '../styles/contacts.module.css';
 import Cookies from "universal-cookie";
+import Seo from "../components/Seo";
 
 export default function Contacts() {
     const [basketCount, setBasketCount] = useState();
