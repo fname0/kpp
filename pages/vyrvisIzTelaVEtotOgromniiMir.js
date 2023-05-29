@@ -23,7 +23,7 @@ export default function AdminChangeProduct() {
         <div className="App">
             <div className="cont">
             <div className="adminChangeProductCont">
-                {console.log("reload")}
+                {console.log(product.out)}
                 {product.out === undefined ? product.out = false : null}
                 <h1 className="homeHeader"><span role='textbox' type="text" contentEditable onBlur={(event) => {product.title=event.currentTarget.innerHTML}} suppressContentEditableWarning={true}>{product.title}</span></h1>
                 <h1 className="homeHeader"><span role='textbox' type="text" contentEditable onBlur={(event) => {product.num=event.currentTarget.innerHTML}} suppressContentEditableWarning={true}>{product.num}</span></h1>
