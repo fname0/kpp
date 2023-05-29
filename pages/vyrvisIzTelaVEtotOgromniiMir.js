@@ -27,11 +27,11 @@ export default function AdminChangeProduct() {
                 <h1 className="homeHeader"><span role='textbox' type="text" contentEditable onBlur={(event) => {product.title=event.currentTarget.innerHTML}} suppressContentEditableWarning={true}>{product.title}</span></h1>
                 <h1 className="homeHeader"><span role='textbox' type="text" contentEditable onBlur={(event) => {product.num=event.currentTarget.innerHTML}} suppressContentEditableWarning={true}>{product.num}</span></h1>
                 <h1 className="homeHeader"><span role='textbox' type="text" contentEditable onBlur={(event) => {product.price=event.currentTarget.innerHTML}} suppressContentEditableWarning={true}>{product.price}</span>₽</h1>
-                {product.out === "False" ? <h1 className="homeHeader"><input type="checkbox" name="" id="" className={"fullCheckbox"} checked onChange={() => {product.out = "True";setProduct(product)}}/> В наличии</h1> 
+                {product.out === "False" ? <h1 className="homeHeader"><input type="checkbox" name="" id="" className={"fullCheckbox"} checked onChange={() => {product.out = "True";console.log(product);setProduct(product)}}/> В наличии</h1> 
                 : <h1 className="homeHeader"><input type="checkbox" name="" id="" className={"fullCheckbox"} onChange={() => {product.out = "False";setProduct(product)}}/> Не в наличии</h1>}
                 <h1 className='homeHeader'><input accept="image/*" multiple type="file" name="" id="" onChange={e => {setFile(e.target.files[0])}} /></h1>
             </div>
-            <button className="basketBuyBtn" onClick={() => this.launchData()}>Изменить</button>
+            <button className="basketBuyBtn" onClick={() => launchData()}>Изменить</button>
             </div>
         </div>
     );
