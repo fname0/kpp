@@ -6,20 +6,20 @@ export default function ZaSvoboduHipHopaParashutHlopnul() {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-    axios.get(`http://95.174.102.106:7474/getorders.php`)
+    axios.get(`https://db-lovat.vercel.app/api//getorders.php`)
         .then(res => {
             setOrders(res.data);
         })
     }, [])
 
     const deleteOrder = (id) => {
-        axios.get(`http://95.174.102.106:7474/deleteorder.php?id=`+id);
+        axios.get(`https://db-lovat.vercel.app/api//deleteorder.php?id=`+id);
         delete orders[id];
         setOrders(orders);
     }
 
     const deleteOrderRepair = (id, rawId) => {
-        axios.get(`http://95.174.102.106:7474/deleterepair.php?id=`+id);
+        axios.get(`https://db-lovat.vercel.app/api//deleterepair.php?id=`+id);
         delete orders[rawId];
         setOrders(orders);
     }
