@@ -34,6 +34,8 @@ export default function ({products}) {
 
   return (
     <div className="App">
+        <Seo title={catName[cat]+" на КАМАЗ"} description={"Купить "+catName[cat]+" на КАМАЗ"} keywords={"запчасти камаз, купить запчасти камаз, "+catName[cat].toLowerCase()+", "+"купить "+catName[cat].toLowerCase()}/>
+
         <button className="contactsFloatingBtn"><Link href="/">
           <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
         </Link></button>
