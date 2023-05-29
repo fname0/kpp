@@ -23,6 +23,7 @@ export default function AdminChangeProduct() {
         <div className="App">
             <div className="cont">
             <div className="adminChangeProductCont">
+                {product.num === "154-1601215" ? <p>hi</p> : <p>hhe</p>}
                 {product.out === "False" ? <p>hi</p> : <p>hhe</p>}
                 {product.out === undefined ? product.out = false : null}
                 <h1 className="homeHeader"><span role='textbox' type="text" contentEditable onBlur={(event) => {product.title=event.currentTarget.innerHTML}} suppressContentEditableWarning={true}>{product.title}</span></h1>
