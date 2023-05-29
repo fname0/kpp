@@ -23,7 +23,7 @@ export default function AdminCards(props) {
                 <img src="/imgs/search.svg" alt="" className="homeSearchImg"/>
             </div>
         </div>
-            {products.length != 0 ? Object.entries(products).filter(name => name[1].title.match(new RegExp(searchValue, "i"))).map((product) => (
+            {products.length != 0 ? Object.entries(products).filter(name => searchValue.toLowerCase().split(' ').every(v => (name[1].title+" "+name[1].num).toLowerCase().includes(v))).map((product) => (
                 <AdminProductCard
                     addBasket={props.addBasket}
                     key={product[1].id}
