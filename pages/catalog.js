@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
+import Seo from "../components/Seo";
 
 export default function Catalog() {
     const [basketCount, setBasketCount] = useState();
@@ -15,6 +16,8 @@ export default function Catalog() {
 
   return (
     <div className="App">
+        <Seo title="Каталог магазина «Всё на КПП»" description="Каталог товаров магазина «Всё на КПП»" keywords="запчасти камаз, купить запчасти камаз, каталог запчастей камаз, всё на кпп, купить детали камаз, мост камаз, клапан камаз, редуктор, КПП, сцепление, кулиса, метизы, датчики, РТИ, подшипники, ZF"/>
+
         <div className="homeSearchInputCont">
             <input type="text" className="homeSearchInput" placeholder="Поиск..." onChange={event => {searchValue=event.target.value}}/>
             <div className="homeSearchImgCont" onClick={() => {window.location="/search?searchValue="+searchValue}}>
