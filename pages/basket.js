@@ -14,7 +14,7 @@ export default function Basket() {
 
   return (
     <div className="App">
-        <Seo title={"Корзина|"+(typeof cookie === 'undefined' ? "0" : cookie.get('basket').length) + " товаров"} description="Корзина" keywords="запчасти камаз, купить запчасти камаз, корзина"/>
+        <Seo title={`Корзина|${typeof cookie === 'undefined' ? "0" : cookie.get('basket') === undefined ? "0" : cookie.get('basket').length} товаров`} description="Корзина" keywords="запчасти камаз, купить запчасти камаз, корзина"/>
 
         <button className="contactsFloatingBtn"><Link href="/">
           <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
