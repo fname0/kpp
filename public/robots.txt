@@ -1,0 +1,16 @@
+User-Agent: *
+Disallow: /basket
+Disallow: /greetings
+Disallow: /buy
+Disallow: /etoPretPizheKrekaPodnimaiNashFlag
+Disallow: /vyrvisIzTelaVEtotOgromniiMir
+Disallow: /zaSvoboduHipHopaParashutHlopnul
+
+Allow: /about
+Allow: /contacts
+Allow: /catalog
+Allow: /category/*
+Allow: /product/*
+Allow: /repair
+Allow: /search
+Sitemap: https://kpp116.ru/sitemap.xml
