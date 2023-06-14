@@ -22,7 +22,7 @@ export default class vyrvisIzTelaVEtotOgromniiMir extends React.Component {
     formData.append('file', state.file);
     formData.append('product', JSON.stringify(state.product));
     // axios.post(`http://db-lovat.vercel.app/api/setproductinfo.php`, formData)
-    axios.post(`https://kpp116.ru/setproductinfo`, formData)
+    axios.post(`https://kpp116.ru/api/setproductinfo`, formData)
   }
 
   render() {
