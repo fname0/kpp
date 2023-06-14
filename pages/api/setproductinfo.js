@@ -5,5 +5,6 @@ export default function handler(req, res) {
       headers: {
         "content-type": "application/json",
       },
-    }).catch((e) => console.log(e));
+    });
+    res.status(200).send(req.body);
 }
