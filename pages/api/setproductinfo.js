@@ -1,3 +1,3 @@
 export default function handler(req, res) {
-    res.status(200).send(req.body)
+    res.status(200).send(JSON.parse(req.body))
 }
