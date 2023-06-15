@@ -21,7 +21,7 @@ export default class vyrvisIzTelaVEtotOgromniiMir extends React.Component {
     const formData = new FormData();
     formData.append('file', state.file);
     formData.append('product', JSON.stringify(state.product));
-    axios.post(`https://db-lovat.vercel.app/api/bridge.php`, formData)
+    axios.post(`http://95.174.102.106/api/test.php`, formData)
   }
 
   render() {
