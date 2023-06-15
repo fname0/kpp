@@ -1,4 +1,4 @@
-export async function handler(req: Request) {
+export async function handler(req) {
   const data = await req.json();
     fetch("http://95.174.102.106:7474/api/test.php", {
       method: "POST",
