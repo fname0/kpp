@@ -5,7 +5,7 @@ Disallow: /buy
 Disallow: /etoPretPizheKrekaPodnimaiNashFlag
 Disallow: /vyrvisIzTelaVEtotOgromniiMir
 Disallow: /zaSvoboduHipHopaParashutHlopnul
-Disallow: /ktoZaydetTotLoh
+Disallow: /lvchlvk
 
 Allow: /about
 Allow: /contacts

@@ -2,7 +2,7 @@ import Cookies from "universal-cookie";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export default function KtoZaydetTotLoh() {
+export default function Lvchlvk() {
     const [basketCount, setBasketCount] = useState();
 
     useEffect(() => {
