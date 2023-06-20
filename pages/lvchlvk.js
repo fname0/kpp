@@ -40,11 +40,11 @@ export default function Lvchlvk() {
                     </label>
                     <label>
                         <p className="buyFormText">Цена:</p>
-                        <input type="text" className="buyFormInput"/>
+                        <input type="text" className="buyFormInput" required/>
                     </label>
                     <label>
                         <p className="buyFormText">Категория:</p>
-                        <input list="browsers" className="buyFormInput"/>
+                        <input list="browsers" className="buyFormInput" required/>
                         <datalist id="browsers">
                             <option value="Редуктор"/>
                             <option value="КПП"/>
