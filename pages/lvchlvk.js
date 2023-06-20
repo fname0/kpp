@@ -39,6 +39,15 @@ export default function Lvchlvk() {
                         <p className="buyFormText">Цена:</p>
                         <input type="text" className="buyFormInput"/>
                     </label>
+                    <select id="cars" name="cars" size="2" multiple>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="fiat">Fiat</option>
+                        <option value="audi">Audi</option>
+                        <option value="saab">Saab</option>
+                        <option value="fiat">Fiat</option>
+                        <option value="audi">Audi</option>
+                    </select>
                     <div>
                         <input type="checkbox" name="out" id="out" className="buyCheckbox"/>
                         <label htmlFor="agree" className="buyCheckboxText">В наличии</label>
