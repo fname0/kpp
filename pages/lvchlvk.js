@@ -40,13 +40,15 @@ export default function Lvchlvk() {
                         <input type="text" className="buyFormInput"/>
                     </label>
                     <label>
+                        <p className="buyFormText">Категория:</p>
                         <input list="browsers" className="buyFormInput"/>
                         <datalist id="browsers">
-                            <option value="Internet Explorer"/>
-                            <option value="Firefox"/>
-                            <option value="Chrome"/>
-                            <option value="Opera"/>
-                            <option value="Safari"/>
+                            <option value="Редуктор"/>
+                            <option value="КПП"/>
+                            <option value="Сцепление(+кулиса)"/>
+                            <option value="Метизы(+датчики, РТИ)"/>
+                            <option value="Подшипники"/>
+                            <option value="ZF"/>
                         </datalist>
                     </label>
                     <div>
