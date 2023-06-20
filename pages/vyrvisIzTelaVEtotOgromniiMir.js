@@ -41,8 +41,10 @@ export default class vyrvisIzTelaVEtotOgromniiMir extends React.Component {
                 : <h1 className="homeHeader"><input type="checkbox" name="" id="" className={"fullCheckbox"} onChange={() => {this.state.product.out = "False";this.setState(this.state)}}/> Не в наличии</h1>}
                 <h1 className='homeHeader'><input accept="image/*" multiple type="file" name="" id="" onChange={e => {this.state.file = e.target.files[0];this.setState(this.state)}} /></h1>
             </div>
-            <button className="basketBuyBtn" onClick={() => this.launchData(this.state)}>Изменить</button>
-            <button className="productDeleteBtn" onClick={() => this.deleteProduct()}>Удалить</button>
+            <div className="adminChangeProductCont">
+              <button className="basketBuyBtn" onClick={() => this.launchData(this.state)}>Изменить</button>
+              <button className="productDeleteBtn" onClick={() => this.deleteProduct()}>Удалить</button>
+            </div>
             </div>
         </div>
     );

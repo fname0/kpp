@@ -441,7 +441,7 @@ backdrop-filter: blur(0px);
 .productDeleteBtn {
     color: white;
     border: none;
-    box-shadow: 0 4px 30px rgba(32,98,0,0.9);
+    box-shadow: 0 4px 30px rgba(98,0,0,0.9);
     align-self: center;
     font-family: 'UbuntuReg';
     font-size: x-large;
