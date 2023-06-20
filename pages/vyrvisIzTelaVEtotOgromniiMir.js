@@ -25,7 +25,7 @@ export default class vyrvisIzTelaVEtotOgromniiMir extends React.Component {
   }
 
   deleteProduct() {
-    axios.get(`https://db-lovat.vercel.app/api/deleteproduct.php?id=`+product.id);
+    axios.get(`https://db-lovat.vercel.app/api/deleteproduct.php?id=`+new URLSearchParams(window.location.search).get('id'));
   }
 
   render() {
