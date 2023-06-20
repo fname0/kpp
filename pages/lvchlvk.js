@@ -35,8 +35,8 @@ export default function Lvchlvk() {
                         <input type="text" className="buyFormInput" required/>
                     </label>
                     <label>
-                        <p className="buyFormText">Артикул:</p>
-                        <input type="text" className="buyFormInput"/>
+                        <p className="buyFormText">Артикул(если нет, поставь -):</p>
+                        <input type="text" className="buyFormInput" required/>
                     </label>
                     <label>
                         <p className="buyFormText">Цена:</p>
