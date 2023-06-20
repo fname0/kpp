@@ -16,8 +16,7 @@ export default function Lvchlvk() {
         formData.append('num', e.target[1].value);
         formData.append('price', e.target[2].value);
         formData.append('out', e.target[3].checked);
-        console.log(formData);
-        // axios.post(`https://db-lovat.vercel.app/api/addproduct.php`, formData)
+        axios.post(`https://db-lovat.vercel.app/api/addproduct.php`, formData)
         // window.location.href = "/greetings";
         e.preventDefault();
     }
