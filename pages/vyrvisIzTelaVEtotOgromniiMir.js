@@ -24,6 +24,10 @@ export default class vyrvisIzTelaVEtotOgromniiMir extends React.Component {
     axios.post(`https://db-lovat.vercel.app/api/setproductinfo.php`, formData)
   }
 
+  deleteProduct() {
+    axios.get(`https://db-lovat.vercel.app/api/deleteproduct.php?id=`+product.id);
+  }
+
   render() {
     return (
         <div className="App">
@@ -38,6 +42,7 @@ export default class vyrvisIzTelaVEtotOgromniiMir extends React.Component {
                 <h1 className='homeHeader'><input accept="image/*" multiple type="file" name="" id="" onChange={e => {this.state.file = e.target.files[0];this.setState(this.state)}} /></h1>
             </div>
             <button className="basketBuyBtn" onClick={() => this.launchData(this.state)}>Изменить</button>
+            <button className="productDeleteBtn" onClick={() => this.deleteProduct()}>Удалить</button>
             </div>
         </div>
     );

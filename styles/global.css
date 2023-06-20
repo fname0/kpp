@@ -438,6 +438,24 @@ backdrop-filter: blur(0px);
     margin-bottom: 4svh;
 }
 
+.productDeleteBtn {
+    color: white;
+    border: none;
+    box-shadow: 0 4px 30px rgba(32,98,0,0.9);
+    align-self: center;
+    font-family: 'UbuntuReg';
+    font-size: x-large;
+    background: rgb(98,0,0);
+    background: linear-gradient(45deg, rgba(98,0,0,1) 0%, rgba(186,77,77,1) 100%);
+    border-radius: 16px;
+    padding-top: .75svh;
+    padding-bottom: .75svh;
+    padding-right: 1.75svh;
+    padding-left: 1.75svh;
+    margin-top: 6svh;
+    margin-bottom: 4svh;
+}
+
 .categoryBasketBtnText {
     font-family: 'UbuntuReg';
     font-size: 22px;

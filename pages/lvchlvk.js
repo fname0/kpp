@@ -1,15 +1,6 @@
-import Cookies from "universal-cookie";
 import axios from "axios";
-import { useEffect, useState } from "react";
 
 export default function Lvchlvk() {
-    const [basketCount, setBasketCount] = useState();
-
-    useEffect(() => {
-        const cookie = new Cookies();
-        setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length);
-    }, [])
-
     const doSomething = function (e) {
         const formData = new FormData();
         formData.append('title', e.target[0].value);
