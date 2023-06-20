@@ -25,30 +25,25 @@ export default function Lvchlvk() {
         <div className="App">
             <div className="cont">
             <div className="homeContainer">
-                <h1 className="homeHeader">Оформление заявки</h1>
+                <h1 className="homeHeader">Добавление товара</h1>
                 <form action="#" onSubmit={doSomething} className="buyFormCont">
                     <label>
-                        <p className="buyFormText">ФИО:</p>
+                        <p className="buyFormText">Название товара:</p>
                         <input type="text" className="buyFormInput" required/>
                     </label>
                     <label>
-                        <p className="buyFormText">Телефон(для связи):</p>
-                        <input type="text" className="buyFormInput" required minLength={11} maxLength={12}/>
+                        <p className="buyFormText">Артикул:</p>
+                        <input type="text" className="buyFormInput"/>
                     </label>
                     <label>
-                        <p className="buyFormText">Описание:</p>
-                        <textarea className="buyFormInput" style={{height: 'auto'}} onChange={e => {e.target.style.height = 'auto';e.target.style.height = e.target.scrollHeight + 8 + 'px'}} required minLength={20}/>
+                        <p className="buyFormText">Цена:</p>
+                        <input type="text" className="buyFormInput"/>
                     </label>
                     <div>
-                        <input type="checkbox" name="whats" id="whats" className="buyCheckbox"/>
-                        <label htmlFor="agree" className="buyCheckboxText">Написать в WhatsApp для оплаты и доставки</label>
-                        <p className="buyCheckboxSubText">Если вы не поставите галочку, мы позвоним Вам на телефон</p>
+                        <input type="checkbox" name="out" id="out" className="buyCheckbox"/>
+                        <label htmlFor="agree" className="buyCheckboxText">В наличии</label>
                     </div>
-                    <div>
-                        <input type="checkbox" name="agree" id="agree" className="buyCheckbox" required/>
-                        <label htmlFor="agree" className="buyCheckboxText">Я согласен на обработку данных</label>
-                    </div>
-                    <button className="basketBuyBtn" type="submit">Оформить</button>
+                    <button className="basketBuyBtn" type="submit">Добавить</button>
                 </form>
             </div>
             </div>
