@@ -12,11 +12,12 @@ export default function Lvchlvk() {
 
     const doSomething = function (e) {
         const formData = new FormData();
-        formData.append('fio', e.target[0].value);
-        formData.append('tel', e.target[1].value);
-        formData.append('description', e.target[2].value);
-        formData.append('whats', e.target[3].checked);
-        axios.post(`https://db-lovat.vercel.app/api/repair.php`, formData)
+        formData.append('title', e.target[0].value);
+        formData.append('num', e.target[1].value);
+        formData.append('price', e.target[2].value);
+        formData.append('out', e.target[3].checked);
+        console.log(formData);
+        axios.post(`https://db-lovat.vercel.app/api/addproduct.php`, formData)
         window.location.href = "/greetings";
         e.preventDefault();
     }
