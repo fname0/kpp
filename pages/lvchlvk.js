@@ -42,11 +42,11 @@ export default function Lvchlvk() {
                     <label>
                         <input list="browsers" className="buyFormInput"/>
                         <datalist id="browsers">
-                            <option value="Internet Explorer">
-                            <option value="Firefox">
-                            <option value="Chrome">
-                            <option value="Opera">
-                            <option value="Safari">
+                            <option value="Internet Explorer"/>
+                            <option value="Firefox"/>
+                            <option value="Chrome"/>
+                            <option value="Opera"/>
+                            <option value="Safari"/>
                         </datalist>
                     </label>
                     <div>
