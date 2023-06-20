@@ -1,10 +1,8 @@
 import Cookies from "universal-cookie";
 import axios from "axios";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import Seo from "../components/Seo";
 
-export default function Repair() {
+export default function KtoZaydetTotLoh() {
     const [basketCount, setBasketCount] = useState();
 
     useEffect(() => {
@@ -25,17 +23,6 @@ export default function Repair() {
 
     return (
         <div className="App">
-            <Seo title="Заявка на ремонт/сборку|Всё на КПП" description="Отправить заявку на ремонт или сборку коробки перемены передач (КПП)" keywords="запчасти камаз, всё на кпп, ремонт кпп, сборка кпп, собрать кпп, отремонтировать кпп, ремонт коробки передач, сборка коробки передач"/>
-
-            <button className="contactsFloatingBtn"><Link href="/">
-                <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
-            </Link></button>
-            <button className="catFloatingBtn"><Link href="/basket">
-                <img src='/imgs/basket.svg' alt="" className="catFloatingBtnImg"/>
-                <div className="catFloatingBtnTextCont">
-                    <p className="categoryBasketBtnText">{basketCount}</p>
-                </div>
-            </Link></button>
             <div className="cont">
             <div className="homeContainer">
                 <h1 className="homeHeader">Оформление заявки</h1>
