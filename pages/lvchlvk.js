@@ -12,11 +12,14 @@ export default function Lvchlvk() {
 
     const doSomething = function (e) {
         const formData = new FormData();
+        console.log(e);
+        console.log({"Редуктор": "reductor", "КПП" :"kpp", "Сцепление(+кулиса)": "scepa", "Метиз(+датчики, РТИ)": "metiz", "Подшипник": "podshib", "ZF": "ZF"}[e.target[3].value]);
         formData.append('title', e.target[0].value);
         formData.append('num', e.target[1].value);
         formData.append('price', e.target[2].value);
-        formData.append('out', e.target[3].checked);
-        axios.post(`https://db-lovat.vercel.app/api/addproduct.php`, formData)
+        formData.append('cat', {"Редуктор": "reductor", "КПП" :"kpp", "Сцепление(+кулиса)": "scepa", "Метиз(+датчики, РТИ)": "metiz", "Подшипник": "podshib", "ZF": "ZF"}[e.target[3].value]);
+        formData.append('out', e.target[4].checked); 
+        // axios.post(`https://db-lovat.vercel.app/api/addproduct.php`, formData)
         // window.location.href = "/greetings";
         e.preventDefault();
     }
@@ -46,8 +49,8 @@ export default function Lvchlvk() {
                             <option value="Редуктор"/>
                             <option value="КПП"/>
                             <option value="Сцепление(+кулиса)"/>
-                            <option value="Метизы(+датчики, РТИ)"/>
-                            <option value="Подшипники"/>
+                            <option value="Метиз(+датчики, РТИ)"/>
+                            <option value="Подшипник"/>
                             <option value="ZF"/>
                         </datalist>
                     </label>
