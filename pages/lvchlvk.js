@@ -8,7 +8,7 @@ export default function Lvchlvk() {
         formData.append('num', e.target[1].value);
         formData.append('price', e.target[2].value);
         formData.append('cat', {"Редуктор": "reductor", "КПП" :"kpp", "Сцепление(+кулиса)": "scepa", "Метиз(+датчики, РТИ)": "metiz", "Подшипник": "podshib", "ZF": "ZF"}[e.target[3].value]);
-        formData.append('out', e.target[4].checked); 
+        formData.append('out', !e.target[4].checked); 
         formData.append('file', file);
         axios.post(`https://db-lovat.vercel.app/api/addproduct.php`, formData)
         window.location.href = "/greetings";
