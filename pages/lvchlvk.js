@@ -1,18 +1,21 @@
 import axios from "axios";
+import { useState } from "react";
 
 export default function Lvchlvk() {
     const doSomething = function (e) {
         const formData = new FormData();
-        console.log(e)
-        // formData.append('title', e.target[0].value);
-        // formData.append('num', e.target[1].value);
-        // formData.append('price', e.target[2].value);
-        // formData.append('cat', {"Редуктор": "reductor", "КПП" :"kpp", "Сцепление(+кулиса)": "scepa", "Метиз(+датчики, РТИ)": "metiz", "Подшипник": "podshib", "ZF": "ZF"}[e.target[3].value]);
-        // formData.append('out', e.target[4].checked); 
-        // axios.post(`https://db-lovat.vercel.app/api/addproduct.php`, formData)
-        // window.location.href = "/greetings";
+        formData.append('title', e.target[0].value);
+        formData.append('num', e.target[1].value);
+        formData.append('price', e.target[2].value);
+        formData.append('cat', {"Редуктор": "reductor", "КПП" :"kpp", "Сцепление(+кулиса)": "scepa", "Метиз(+датчики, РТИ)": "metiz", "Подшипник": "podshib", "ZF": "ZF"}[e.target[3].value]);
+        formData.append('out', e.target[4].checked); 
+        formData.append('file', file);
+        axios.post(`https://db-lovat.vercel.app/api/addproduct.php`, formData)
+        window.location.href = "/greetings";
         e.preventDefault();
     }
+
+    const [file, setFile] = useState();
 
     return (
         <div className="App">
@@ -48,7 +51,7 @@ export default function Lvchlvk() {
                         <input type="checkbox" name="out" id="out" className="buyCheckbox"/>
                         <label htmlFor="agree" className="buyCheckboxText">В наличии</label>
                     </div>
-                    <input accept="image/*" multiple type="file" name="" id=""/>
+                    <input accept="image/*" multiple type="file" name="" id="" onChange={e => {setFile(e.target.files[0])}}/>
                     <button className="basketBuyBtn" type="submit">Добавить</button>
                 </form>
             </div>
