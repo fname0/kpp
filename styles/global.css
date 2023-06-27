@@ -189,9 +189,10 @@ backdrop-filter: blur(0px);
 }
 
 .categoryCont {
+    position: relative;
     padding-top: 16px;
-    background-size: cover;
-    background-position: center center;
+    /* background-size: cover;
+    background-position: center center; */
     background-attachment: fixed;
     color: white;
     min-height: 100vh;
@@ -340,9 +341,10 @@ backdrop-filter: blur(0px);
 }
 
 .basketCont {
+    position: relative;
     padding-top: 16px;
-    background-size: cover;
-    background-position: center center;
+    /* background-size: cover;
+    background-position: center center; */
     background-attachment: fixed;
     color: white;
     min-height: 100svh;

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Image from 'next/image';
 
 export default class vyrvisIzTelaVEtotOgromniiMir extends React.Component {
   state = {
@@ -31,6 +32,8 @@ export default class vyrvisIzTelaVEtotOgromniiMir extends React.Component {
   render() {
     return (
         <div className="App">
+        <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
+         
             <div className="cont">
             <div className="adminChangeProductCont">
               {this.state.product.out === undefined ? this.state.product.out = false : null}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 import Seo from "../components/Seo";
+import Image from 'next/image';
 
 export default function About() {
   const [basketCount, setBasketCount] = useState();
@@ -14,6 +15,7 @@ export default function About() {
   return (
     <div className="App">
         <Seo title="О нас|Всё на КПП КАМАЗ" description='Информация о компании «Всё на КПП»' keywords="запчасти камаз"/>
+        <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
 
         <button className="contactsFloatingBtn"><Link href="/">
           <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>

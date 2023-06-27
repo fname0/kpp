@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import BasketCards from "../components/BasketCards";
 import Seo from "../components/Seo";
+import Image from 'next/image';
 
 export default function Basket() {
     const [cookie, setCookies] = useState();
@@ -15,6 +16,7 @@ export default function Basket() {
   return (
     <div className="App">
         <Seo title={`Корзина|${typeof cookie === 'undefined' ? "0" : cookie.get('basket') === undefined ? "0" : cookie.get('basket').length} товаров`} description="Корзина" keywords="запчасти камаз, купить запчасти камаз, корзина"/>
+        <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
 
         <button className="contactsFloatingBtn"><Link href="/">
           <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>

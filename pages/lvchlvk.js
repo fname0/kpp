@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import Image from 'next/image';
 
 export default function Lvchlvk() {
     const doSomething = function (e) {
@@ -19,6 +20,8 @@ export default function Lvchlvk() {
 
     return (
         <div className="App">
+        <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
+
             <div className="cont">
             <div className="homeContainer">
                 <h1 className="homeHeader">Добавление товара</h1>

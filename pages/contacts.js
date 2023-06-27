@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from '../styles/contacts.module.css';
 import Cookies from "universal-cookie";
 import Seo from "../components/Seo";
+import Image from 'next/image';
 
 export default function Contacts() {
     const [basketCount, setBasketCount] = useState();
@@ -15,6 +16,7 @@ export default function Contacts() {
   return (
     <div className="App">
       <Seo title="Контакты|Всё на КПП" description="Контакты компании «Всё на КПП»" keywords="запчасти камаз, купить запчасти камаз, контакты"/>
+      <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
 
       <button className="contactsFloatingBtn"><Link href="/">
           <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>

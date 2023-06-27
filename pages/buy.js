@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 import Seo from "../components/Seo";
+import Image from 'next/image';
 
 export default function Buy() {
     const [productsCount, setProductsCount] = useState();
@@ -31,6 +32,7 @@ export default function Buy() {
     return (
         <div className="App">
             <Seo title="Оформление заказа" description="Оформить заказ" keywords="оформление заказа"/>
+            <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
 
             <button className="contactsFloatingBtn"><Link href="/">
             <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>

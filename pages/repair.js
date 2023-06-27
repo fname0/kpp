@@ -3,6 +3,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Seo from "../components/Seo";
+import Image from 'next/image';
 
 export default function Repair() {
     const [basketCount, setBasketCount] = useState();
@@ -26,6 +27,7 @@ export default function Repair() {
     return (
         <div className="App">
             <Seo title="Заявка на ремонт/сборку|Всё на КПП" description="Отправить заявку на ремонт или сборку коробки перемены передач (КПП)" keywords="запчасти камаз, всё на кпп, ремонт кпп, сборка кпп, собрать кпп, отремонтировать кпп, ремонт коробки передач, сборка коробки передач"/>
+            <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
 
             <button className="contactsFloatingBtn"><Link href="/">
                 <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>

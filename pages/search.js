@@ -4,6 +4,7 @@ import Cookies from "universal-cookie";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Seo from "../components/Seo";
+import Image from 'next/image';
 
 export default function Search({products}) {
     const router = useRouter();
@@ -28,6 +29,7 @@ export default function Search({products}) {
   return (
     <div className="App">
         <Seo title="Поиск товара|Всё на КПП" description="Искать нужный товар в магазине «Всё на КПП»" keywords="запчасти камаз, купить запчасти камаз, всё на кпп, поиск товара, каталог, каталог товаров, купить кпп, купить детали камаз, детали камаз"/>
+        <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
 
         <button className="contactsFloatingBtn"><Link href="/">
           <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
