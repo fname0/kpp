@@ -52,7 +52,7 @@ export default function ({product}) {
             <div className="productInfoCont">
               {product.out === undefined ? product.out = "False" : null}
                 <div className="productInfoImgCont">
-                    <img src={tryRequire()} alt="" className="productInfoCardImg"/>
+                    <Image src={tryRequire()} placeholder="blur" alt="" className="productInfoCardImg"/>
                 </div>
                 <h1 className="homeHeader">{product.title}</h1>
                 <h1 className="homeHeader">{product.num}</h1>

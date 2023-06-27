@@ -1,11 +1,13 @@
 @font-face {
     font-family: 'UbuntuLight';
     src: url('../public/fonts/Ubuntu-Light.ttf');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'UbuntuReg';
     src: url('../public/fonts/Ubuntu-Light.ttf');
+    font-display: swap;
 }
 
 :root {
