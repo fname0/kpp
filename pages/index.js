@@ -2,15 +2,14 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Cookies from 'universal-cookie';
 import Seo from '../components/Seo';
+import Image from 'next/image';
 
 export default function Index() {
     const [basketCount, setBasketCount] = useState();
     const [isDesktop, setIsDesktop] = useState(false);
     let searchValue = "";
-    const [bgClass, setBgClass] = useState('blurBG');
 
     useEffect(() => {
-        setBgClass('clearBG');
         const cookie = new Cookies();
         setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length);
         setIsDesktop(window.innerWidth > window.innerHeight);
@@ -19,6 +18,7 @@ export default function Index() {
   return (
     <div className="App">
         <Seo title="Всё на КПП КАМАЗ" description="Купить запчасти для КамАЗ по дешёвым ценам: редуктор, КПП, сцепление, кулиса, метизы, датчики, РТИ, подшипники, ZF" keywords="запчасти камаз, кпп камаз, коробка передач камаз, сцепление камаз, купить детали камаз, мост камаз, клапан камаз"/>
+        <Image src='/imgs/kamazHeader.jpg' blurDataURL='data:image/png;base64,q47-QbkX~qRhkCx]IUxtPEM{xuV?adbcaeof00Mx4nW?M{V@t7Rj4m%1jEkXt7oLogRjkVkWkDxZt7j[offlxZxaRjWBkCNGn~of' placeholder="blur" objectFit="cover"/>
 
         <div className="homeSearchInputCont">
             <input type="text" className="homeSearchInput" placeholder="Поиск..." onChange={event => {searchValue=event.target.value}}/>
@@ -33,7 +33,7 @@ export default function Index() {
           </div>
         </Link></button>
         
-        <div className={"cont "+bgClass}>
+        <div className="cont">
         <div className="homeContainer">
             <h1 className="homeHeader">Запчасти для КАМАЗА</h1>
             <div className="catalogCardContHome">
