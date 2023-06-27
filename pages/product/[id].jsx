@@ -68,7 +68,7 @@ export default function ({product}) {
 
 export async function getServerSideProps(content) {
     const id = content.query['id'];
-    const response = await fetch(`https://www.kpp116.ru/api/getproduct.php?id=`+id);
+    const response = await fetch(`https://www.kpp116.ru/api/getproduct?id=`+id);
     const product = await response.json();
     return {
         props: {product},
