@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Cookies from 'universal-cookie';
 import Seo from '../../components/Seo';
+import Image from 'next/image';
 
 export default function ({product}) {
     const [cookie, setCookie] = useState();
@@ -36,6 +37,7 @@ export default function ({product}) {
     return (
         <div className="App">
             <Seo title={product.title+'('+product.num+') за '+ product.price+'₽'} description={'Купить '+product.title+'('+product.num+')'+' за '+product.price+"₽"} keywords={"запчасти камаз, купить запчасти камаз, "+product.title+", "+product.num+", "+{"reductor": "Редукторы", "kpp": "КПП", "scepa": "Сцепление(+кулиса)", "metiz": "Метизы(+датчики, РТИ)", "podshib": "Подшипники", "ZF": "ZF"}[product.cat]}/>
+            <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
 
             <button className="contactsFloatingBtn"><Link href="/">
                 <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import CatalogCards from "../../components/CatalogCards";
 import axios from "axios";
 import Seo from "../../components/Seo";
+import Image from 'next/image';
 
 export default function ({products}) {
   const [productsToRender, setProductsToRender] = useState(products);
@@ -36,6 +37,7 @@ export default function ({products}) {
   return (
     <div className="App">
         <Seo title={catName[cat]+" на КАМАЗ"} description={"Купить "+catName[cat].toLowerCase()+" на КАМАЗ"} keywords={"запчасти камаз, купить запчасти камаз, "+catName[cat].toLowerCase()+", "+"купить "+catName[cat].toLowerCase()}/>
+        <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
 
         <button className="contactsFloatingBtn"><Link href="/">
           <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
