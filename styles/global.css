@@ -55,7 +55,7 @@
 
 .cont {
     height: 100svh;
-    background-image: url('../public/imgs/kamazHeaderLight.jpg');
+    background-image: url('../public/imgs/kamazHeaderBlur.png');
     background-size: cover;
     background-position: center center;
     display: flex;
@@ -190,7 +190,7 @@ backdrop-filter: blur(0px);
 
 .categoryCont {
     padding-top: 16px;
-    background-image: url('../public/imgs/kamazHeader.jpg');
+    background-image: url('../public/imgs/kamazHeaderBlur.png');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -334,7 +334,7 @@ backdrop-filter: blur(0px);
 
 .basketCont {
     padding-top: 16px;
-    background-image: url('../public/imgs/kamazHeader.jpg');
+    background-image: url('../public/imgs/kamazHeaderBlur.png');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
