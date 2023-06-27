@@ -10,7 +10,7 @@ export default async function handler(req, res) {
         user: "remote",
         password: "yaDumalPass"
     });
-    const [data] = await dbconnection.execute("SELECT * FROM products WHERE id = ?", [id]);
+    const data = await dbconnection.execute("SELECT * FROM products WHERE id = ?", [id]);
     dbconnection.end();
 
     res.status(200).json(data)
