@@ -4,7 +4,8 @@ import Cookies from 'universal-cookie';
 import Seo from '../../components/Seo';
 import Image from 'next/image';
 
-export default function ({product}) {
+export default function () {
+    const product = {id: "3", title: "Блок шестерен заднего хода в сборе / з-д Камаз", num: "14-1701082", price: "6800", cat: "kpp", out: "False"}
     const [cookie, setCookie] = useState();
     const [purchased, setPurchased] = useState();
     const [basketCount, setBasketCount] = useState();
@@ -54,7 +55,7 @@ export default function ({product}) {
                 <div className="productInfoImgCont">
                     <Image src={tryRequire()} placeholder="blur" alt="" className="productInfoCardImg"/>
                 </div>
-                <h1 className="homeHeader">1212</h1>
+                <h1 className="homeHeader">{product.title}</h1>
                 <h1 className="homeHeader">{product.num}</h1>
                 <h1 className="homeHeader">{product.price}₽</h1>
                 {product.out === "False" ? <h1 className="homeHeader">В наличии</h1> 
