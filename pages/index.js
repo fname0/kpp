@@ -33,7 +33,7 @@ export default function Index() {
           </div>
         </Link></button>
         
-        <div className={"cont"+bgClass}>
+        <div className={"cont "+bgClass}>
         <div className="homeContainer">
             <h1 className="homeHeader">Запчасти для КАМАЗА</h1>
             <div className="catalogCardContHome">
