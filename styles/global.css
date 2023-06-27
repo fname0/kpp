@@ -54,6 +54,7 @@
 }
 
 .cont {
+    z-index: 1;
     height: 100svh;
     /* background-size: cover;
     background-position: center center; */
