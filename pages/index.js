@@ -18,7 +18,7 @@ export default function Index() {
   return (
     <div className="App">
         <Seo title="Всё на КПП КАМАЗ" description="Купить запчасти для КамАЗ по дешёвым ценам: редуктор, КПП, сцепление, кулиса, метизы, датчики, РТИ, подшипники, ZF" keywords="запчасти камаз, кпп камаз, коробка передач камаз, сцепление камаз, купить детали камаз, мост камаз, клапан камаз"/>
-        <div style={{zIndex: -1}}><Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/></div>
+        <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
 
         <div className="homeSearchInputCont">
             <input type="text" className="homeSearchInput" placeholder="Поиск..." onChange={event => {searchValue=event.target.value}}/>
