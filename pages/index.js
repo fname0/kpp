@@ -7,8 +7,10 @@ export default function Index() {
     const [basketCount, setBasketCount] = useState();
     const [isDesktop, setIsDesktop] = useState(false);
     let searchValue = "";
+    const [bgClass, setBgClass] = useState('blurBG');
 
     useEffect(() => {
+        setBgClass('clearBG');
         const cookie = new Cookies();
         setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length);
         setIsDesktop(window.innerWidth > window.innerHeight);
@@ -31,7 +33,7 @@ export default function Index() {
           </div>
         </Link></button>
         
-        <div className="cont">
+        <div className={"cont"+bgClass}>
         <div className="homeContainer">
             <h1 className="homeHeader">Запчасти для КАМАЗА</h1>
             <div className="catalogCardContHome">
