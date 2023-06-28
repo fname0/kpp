@@ -1,10 +1,10 @@
 export default function AdminCard(props) {
     const order = props.shiih;
-    const productsPriceSum = 0;
-    const i = 0;
+    let productsPriceSum = 0;
+    let qw = 0;
     order.products.forEach(product => {
-        product.deleted==="0"?product.out==="False"?productsPriceSum+=parseInt(product.price*(order.productscount.split(",")[i])):null:null;
-        i+=1;
+        product.deleted==="0"?product.out==="False"?productsPriceSum+=parseInt(product.price*(order.productscount.split(",")[qw])):null:null;
+        qw+=1;
     });
 
     return (
