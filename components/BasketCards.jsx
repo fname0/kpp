@@ -50,6 +50,7 @@ export default class BasketCards extends React.Component {
           num={product[1].num}
 					title={product[1].title}
 					price={product[1].price}
+          deleted={product[1].deleted}
           cookie={cookies}
           delete={deleteFromBasket}
           count={productsCount[product[1].id] === undefined ? 1 : productsCount[product[1].id]}

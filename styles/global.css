@@ -390,6 +390,21 @@ backdrop-filter: blur(0px);
     align-items: center;
 }
 
+.basketCardDel {
+    margin-top: 4svh;
+    display: flex;
+    padding: 2vw;
+    width: var(--basketCardWidth);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: rgba(120, 0, 0, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 1);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    align-items: center;
+}
+
 .basketCardImg {
     width: 8svh;
     height: 8svh;
