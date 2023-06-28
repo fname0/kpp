@@ -29,7 +29,7 @@ export default function Search({products}) {
   return (
     <div className="App">
         <Seo title="Поиск товара|Всё на КПП" description="Искать нужный товар в магазине «Всё на КПП»" keywords="запчасти камаз, купить запчасти камаз, всё на кпп, поиск товара, каталог, каталог товаров, купить кпп, купить детали камаз, детали камаз"/>
-        <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
+        <div style={{position:"fixed",width:"100vw",height:"100vh"}}><Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/></div>
 
         <button className="contactsFloatingBtn"><Link href="/">
           <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
