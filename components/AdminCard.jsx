@@ -13,6 +13,7 @@ export default function AdminCard(props) {
                     <p>Артикул: {product[1].num}</p>
                     <p>{order.productscount.split(",")[i]} шт.</p>
                     <p>{product[1].price}₽ {parseInt(order.productscount.split(",")[i]) === 1 ? null : "(" + product[1].price*parseInt(order.productscount.split(",")[i]) + ")"}</p>
+                    {product[1].deleted === "0"?product[1].out === "False"?null:<p style={{color: "red"}}>товар не в наличии</p>:<p style={{color: "red"}}>товар удален</p>}
                     <p>---</p>
                 </div>
             ))}

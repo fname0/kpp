@@ -56,7 +56,7 @@ export default function Buy() {
                     </label>
                     <label>
                         <p className="buyFormText">Телефон(для связи):</p>
-                        <input type="text" className="buyFormInput" required minLength={11} maxLength={12}/>
+                        <input type="text" className="buyFormInput" required minLength={11} maxLength={11}/>
                     </label>
                     <div>
                         <input type="checkbox" name="whats" id="whats" className="buyCheckbox"/>
