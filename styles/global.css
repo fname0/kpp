@@ -542,6 +542,7 @@ backdrop-filter: blur(0px);
 }
 
 .homeSearchInputCont {
+    z-index: 1;
     position: absolute;
     top: 12svh;
     width: 100vw;
@@ -550,6 +551,7 @@ backdrop-filter: blur(0px);
 }
 
 .catSearchInputCont {
+    z-index: 1;
     position: absolute;
     top: 9svh;
     width: 100%;
