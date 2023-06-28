@@ -33,7 +33,7 @@ export default function Buy() {
     return (
         <div className="App">
             <Seo title="Оформление заказа" description="Оформить заказ" keywords="оформление заказа"/>
-            <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
+            <div style={{position:"fixed",width:"100vw",height:"100vh"}}><Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/></div>
 
             <button className="contactsFloatingBtn"><Link href="/">
             <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
