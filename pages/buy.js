@@ -23,8 +23,9 @@ export default function Buy() {
         products.forEach(product => {
             fullProductsCount = fullProductsCount.concat(productsCount[product] === undefined ? 1 : parseInt(productsCount[product]));
         });
-        axios.get("https://db-lovat.vercel.app/api/buy.php/?products="+products+"&count="+fullProductsCount+"&sum="+cookie.get('productsPriceSum')+"&fio="+e.target[0].value+"&phone="+e.target[1].value+"&whats="+e.target[2].checked);
+        axios.get("https://db-lovat.vercel.app/api/buy.php?products="+products+"&count="+fullProductsCount+"&sum="+cookie.get('productsPriceSum')+"&fio="+e.target[0].value+"&phone="+e.target[1].value+"&whats="+e.target[2].checked);
         cookie.remove('basket');
+        cookie.remove('productsPriceSum');
         window.location = "/greetings";
         e.preventDefault();
     }
