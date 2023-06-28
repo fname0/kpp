@@ -1,5 +1,11 @@
 export default function AdminCard(props) {
     const order = props.shiih;
+    const productsPriceSum = 0;
+    const i = 0;
+    order.products.forEach(product => {
+        product.deleted==="0"?product.out==="False"?productsPriceSum+=parseInt(product.price*(order.productscount.split(",")[i])):null:null;
+        i+=1;
+    });
 
     return (
             order.type === "product" ? <div ><h2>{console.log(order.id)}Покупка товаров</h2>
@@ -17,7 +23,7 @@ export default function AdminCard(props) {
                     <p>---</p>
                 </div>
             ))}
-            <p><strong>Общая цена: {order.productspricesum}</strong></p>
+            <p><strong>Общая цена: {productsPriceSum}</strong></p>
             <button onClick={() => props.deleteOrder(order.id)}>Удалить</button>
             <br />
             <p>--------------------------------</p>
