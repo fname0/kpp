@@ -21,7 +21,7 @@ function BasketCard(props) {
     }
 
     return (
-        <div className={props.deleted === "0" ? "basketCard" : "basketCardDel"}>
+        <div className={props.deleted === "0" ? props.out === "False" ? "basketCard" : "basketCardDel" : "basketCardDel"}>
             <img src={tryRequire()} alt="" className="basketCardImg"/>
             <p className="basketCardTitle">{props.title}</p>
             <p className="basketCardNum">{props.num}</p>
