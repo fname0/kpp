@@ -22,8 +22,8 @@ function BasketCard(props) {
 
     return (
         <div className={props.deleted === "0" ? props.out === "False" ? "basketCard" : "basketCardDel" : "basketCardDel"}>
-            <img src={tryRequire()} alt="" className="basketCardImg"/>
-            <p className="basketCardTitle">{props.title}</p>
+            <img src={tryRequire()} alt="" className="basketCardImg"/>{console.log(props.out)}
+            <p className="basketCardTitle">{props.title}</p>{console.log(props.out === "False")}
             <p className="basketCardNum">{props.num}</p>
             {props.deleted === "0" ? props.out === "False" ? <p className="basketCardTitle">{props.price}₽{parseInt(count) === 1 ? null : "(" + props.price*count + ")"}</p> : null : null }
             {props.deleted === "0" ? props.out === "False" ? <div className="basketCountInputCont"><input type="text" className="basketCountInput" value={count} onChange={(event) => {setCount(event.target.value); countChange(event.target.value)}}/></div> :
