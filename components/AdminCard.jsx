@@ -3,8 +3,9 @@ export default function AdminCard(props) {
     let productsPriceSum = 0;
     let qw = 0;
     order.products.forEach(product => {
-        product.deleted==="0"?product.out==="False"?productsPriceSum+=parseInt(product.price*(order.productscount.split(",")[qw])):null:null;
-        qw+=1;
+        console.log(product);
+        // product.deleted==="0"?product.out==="False"?productsPriceSum+=parseInt(product.price*(order.productscount.split(",")[qw])):null:null;
+        // qw+=1;
     });
 
     return (
@@ -23,12 +24,12 @@ export default function AdminCard(props) {
                     <p>---</p>
                 </div>
             ))}
-            <p><strong>Общая цена: {productsPriceSum}</strong></p>
+            <p><strong>Общая цена: {12}</strong></p>
             <button onClick={() => props.deleteOrder(order.id)}>Удалить</button>
             <br />
             <p>--------------------------------</p>
             <br /></div> : <div >
-            <h2>Ремонт/сборка КПП{console.log(order.id)}</h2>
+            <h2>Ремонт/сборка КПП</h2>
             <p>{order.fio}</p>
             <a href={"tel:"+(order.phone[0]=="7"?"+":"")+order.phone}>{(order.phone[0]=="7"?"+":"")+order.phone}</a>
             <p>{order.whats === "true" ? "Написать на WhatsApp" : "Позвонить на телефон"}</p>
