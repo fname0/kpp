@@ -48,7 +48,8 @@ export default function Repair() {
                     </label>
                     <label>
                         <p className="buyFormText">Телефон(для связи):</p>
-                        <input type="text" className="buyFormInput" required minLength={11} maxLength={12}/>
+                        <input type="text" className="buyFormInput" required minLength={11} maxLength={11} pattern="[0-9]{11}"/>
+                        <p className="buyCheckboxSubText">Формат: 89883224337</p>
                     </label>
                     <label>
                         <p className="buyFormText">Описание:</p>

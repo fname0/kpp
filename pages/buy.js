@@ -55,7 +55,7 @@ export default function Buy() {
                         <input type="text" className="buyFormInput" required/>
                     </label>
                     <label>
-                        <p className="buyFormText">Телефон:</p>
+                        <p className="buyFormText">Телефон(для связи):</p>
                         <input type="text" className="buyFormInput" required minLength={11} maxLength={11} pattern="[0-9]{11}"/>
                         <p className="buyCheckboxSubText">Формат: 89883224337</p>
                     </label>
