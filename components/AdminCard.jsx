@@ -26,7 +26,7 @@ export default function AdminCard(props) {
                     <p>---</p>
                 </div>
             ))}
-            <p><strong>Общая цена: {12}</strong></p>
+            <p><strong>Общая цена: {productsPriceSum}</strong></p>
             <button onClick={() => props.deleteOrder(order.id)}>Удалить</button>
             <br />
             <p>--------------------------------</p>
