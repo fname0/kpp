@@ -26,7 +26,7 @@ export default function ZaSvoboduHipHopaParashutHlopnul() {
 
     return (
         <div>
-            {Object.entries(orders).map((order, i) => (
+            {Object.entries(orders).map((order) => (
                 <AdminCard key={order[1].raw_id} shiih={order[1]} deleteOrder={order[1].type === "product" ? deleteOrder : deleteOrderRepair}/>
             ))}
         </div>
