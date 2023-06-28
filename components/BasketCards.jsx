@@ -58,7 +58,7 @@ export default class BasketCards extends React.Component {
 				/>
 			)) : cookies.get('basket') ? "Секунду, товары грузятся..." : "Вы удалили все товары из корзины"}
       {this.state.products.forEach(product => {
-        this.state.productsPriceSum+=parseInt(product.price*(productsCount[product.id] === undefined ? 1 : productsCount[product.id]));
+        product.deleted==="0"?this.state.productsPriceSum+=parseInt(product.price*(productsCount[product.id] === undefined ? 1 : productsCount[product.id])):null
       })}
         {cookies.get('basket') ?
         <p className='basketSumText'>Всего: {this.state.productsPriceSum}₽</p> : null }
