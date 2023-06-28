@@ -26,7 +26,7 @@ function BasketCard(props) {
             <p className="basketCardTitle">{props.title}</p>
             <p className="basketCardNum">{props.num}</p>
             {props.deleted === "0" ? props.out === "False" ? <p className="basketCardTitle">{props.price}₽{parseInt(count) === 1 ? null : "(" + props.price*count + ")"}</p> : null : null }
-            {props.deleted === "0" ? props.out === "False" ? <div className="basketCountInputCont"><input type="number" className="basketCountInput" maxLength={3} minLength={1} value={count} onChange={(event) => {setCount(event.target.value); countChange(event.target.value)}}/></div> :
+            {props.deleted === "0" ? props.out === "False" ? <div className="basketCountInputCont"><input type="number" className="basketCountInput" maxLength={3} minLength={1} value={count} onChange={(event) => {if (event.target.value > 0) {setCount(event.target.value); countChange(event.target.value)}}}/></div> :
             <p className="basketCardTitle">товар закончился</p>:
             <p className="basketCardTitle">товар был удалён</p>
             }
