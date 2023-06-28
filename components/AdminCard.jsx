@@ -1,14 +1,11 @@
 export default function AdminCard(props) {
     const order = props.shiih;
-    if (order.type === "product")
-    {
     let productsPriceSum = 0;
     let qw = 0;
-    order.products.forEach(product => {
+    order.type === "product" ? order.products.forEach(product => {
         product.deleted==="0"?product.out==="False"?productsPriceSum+=parseInt(product.price*(order.productscount.split(",")[qw])):null:null;
         qw+=1;
-    });
-    }
+    }) : null
 
     return (
             order.type === "product" ? <div><h2>Покупка товаров</h2>
