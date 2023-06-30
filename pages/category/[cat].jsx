@@ -9,7 +9,7 @@ import Image from 'next/image';
 export default function ({products}) {
   let IOS = undefined;
   const [step, setStep] = useState(32);
-  const [curFirst, setCurFirst] = 0;
+  const [curFirst, setCurFirst] = useState(0);
   const [productsToRender, setProductsToRender] = useState(Object.fromEntries(
     Object.entries(products).slice(curFirst, step)
   ));
