@@ -3,13 +3,15 @@ import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
 import Link from "next/link";
 import CatalogCards from "../../components/CatalogCards";
-import axios from "axios";
 import Seo from "../../components/Seo";
 import Image from 'next/image';
 
 export default function ({products}) {
+  let IOS = undefined;
+  let step = 32;
+  let curFirst = 0;
   const [productsToRender, setProductsToRender] = useState(Object.fromEntries(
-    Object.entries(products).slice(0, 32)
+    Object.entries(products).slice(curFirst, step)
   ));
   const router = useRouter();
   const [cookie, setCookies] = useState();
@@ -17,24 +19,26 @@ export default function ({products}) {
   const cat = useRouter().query.cat;
   const catName = {"reductor": "Редукторы", "kpp": "КПП", "scepa": "Сцепление(+кулиса)", "metiz": "Метизы(+датчики, РТИ)", "podshib": "Подшипники", "ZF": "ZF"};
   const {searchValue} = router.query;
-  // const [fetching, setFetching] = useState(false);
-  // let over = false;
+  const [fetching, setFetching] = useState(0);
   
   useEffect(() => {
-    // document.addEventListener('scroll', scrollHandler);
+    document.addEventListener('scroll', scrollHandler);
     const cookie = new Cookies();
     setCookies(cookie);
     setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length);
-    setTimeout(() => {setProductsToRender(products)}, 100);
-    // return function () {
-    //   document.removeEventListener('scroll', scrollHandler)
-    // };
+    IOS = ['iPad Simulator','iPhone Simulator','iPod Simulator','iPad','iPhone','iPod'].includes(navigator.userAgentData.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+    if (!IOS) {setTimeout(() => {step=128;
+    setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst, step)))}, 100);}
+    return function () {
+      document.removeEventListener('scroll', scrollHandler)
+    };
   }, [])
 
-  // useEffect(() => {
-  //   if (fetching) {
-  //   }
-  // }, [fetching])
+  useEffect(() => {
+    if (fetching === 1) {
+      setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2), curFirst+(step/2*3))));
+    }
+  }, [fetching])
 
   const addBasket = (id, isClicked, setIsClicked) => {
     let basket = cookie.get('basket') ? cookie.get('basket') : [];
@@ -44,12 +48,13 @@ export default function ({products}) {
     else cookie.remove('basket');
   }
 
-  // const scrollHandler = (e) => {
-  //   if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100 && !over)
-  //   {
-  //     setFetching(true);
-  //   }
-  // }
+  const scrollHandler = (e) => {
+    if (Object.keys(products).length <= step) return;
+    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100 && productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]].id !== products[Object.keys(products)[Object.keys(products).length-1]].id)
+    {
+      setFetching(1);
+    }
+  }
 
   return (
     <div className="App">
