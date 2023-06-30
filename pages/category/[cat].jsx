@@ -8,7 +8,9 @@ import Seo from "../../components/Seo";
 import Image from 'next/image';
 
 export default function ({products}) {
-  const [productsToRender, setProductsToRender] = useState(products);
+  const [productsToRender, setProductsToRender] = useState(Object.fromEntries(
+    Object.entries(products).slice(0, 32)
+  ));
   const router = useRouter();
   const [cookie, setCookies] = useState();
   const [basketCount, setBasketCount] = useState();
