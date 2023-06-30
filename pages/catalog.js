@@ -8,6 +8,7 @@ export default function Catalog() {
     const [basketCount, setBasketCount] = useState();
     const [isDesktop, setIsDesktop] = useState(false);
     let searchValue = "";
+    const [isPaused, setIsPaused] = useState(false);
 
     useEffect(() => {
         const cookie = new Cookies();
@@ -36,11 +37,11 @@ export default function Catalog() {
           </div>
         </Link></button>
         <div className="cont">
-        <div className="homeContainer">
+        {isPaused === false ? <div className="homeContainer">
             <h1 className="homeHeader">Каталог</h1>
             <div className={isDesktop ? "homeCardCont" : "catalogCardCont"}>
-                <Link href="/category/reductor" className='homeCard noDec' onClick={() => {console.log("test")}}>
-                    <div className="homeCardImgCont" onClick={() => {window.stop()}}>
+                <Link href="/category/reductor" className='homeCard noDec' onClick={() => {setIsPaused(true)}}>
+                    <div className="homeCardImgCont">
                         <img src='/imgs/reductor.svg' alt="" className="homeCardImg"/>
                     </div>
                     <h2 className="homeCardHeader">Редуктор</h2>
@@ -78,7 +79,12 @@ export default function Catalog() {
                     <h2 className="homeCardHeader">ZF</h2>
                 </Link>
             </div>
-        </div>
+        </div> : 
+        <div className="basketCenterTextCont">
+        <p className="basketCenterText">
+          Товары загружаются
+        </p>
+      </div>}
         </div>
     </div>
   )
