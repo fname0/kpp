@@ -26,7 +26,7 @@ export default function ({products}) {
     const cookie = new Cookies();
     setCookies(cookie);
     setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length);
-    IOS = ['iPad Simulator','iPhone Simulator','iPod Simulator','iPad','iPhone','iPod'].includes(navigator.userAgentData.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+    IOS = ['iPad Simulator','iPhone Simulator','iPod Simulator','iPad','iPhone','iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
     if (!IOS) {setTimeout(() => {step=128;
     setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst, step)))}, 100);}
     return function () {
