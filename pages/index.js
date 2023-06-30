@@ -8,6 +8,7 @@ export default function Index() {
     const [basketCount, setBasketCount] = useState();
     const [isDesktop, setIsDesktop] = useState(false);
     let searchValue = "";
+    const [isPaused, setIsPaused] = useState(false);
 
     useEffect(() => {
         const cookie = new Cookies();
@@ -20,21 +21,21 @@ export default function Index() {
         <Seo title="Всё на КПП КАМАЗ" description="Купить запчасти для КамАЗ по дешёвым ценам: редуктор, КПП, сцепление, кулиса, метизы, датчики, РТИ, подшипники, ZF" keywords="запчасти камаз, кпп камаз, коробка передач камаз, сцепление камаз, купить детали камаз, мост камаз, клапан камаз"/>
         <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
 
-        <div className="homeSearchInputCont">
+        {isPaused === false ? <div className="homeSearchInputCont">
             <input type="text" className="homeSearchInput" placeholder="Поиск..." onChange={event => {searchValue=event.target.value}}/>
-            <div className="homeSearchImgCont" onClick={() => {window.location="/search?searchValue="+searchValue}}>
+            <div className="homeSearchImgCont" onClick={() => {window.location="/search?searchValue="+searchValue;setIsPaused(true)}}>
                 <img src='/imgs/search.svg' alt="" className="homeSearchImg"/>
             </div>
-        </div>
-        <button className="catFloatingBtn"><Link href="/basket">
+        </div> : null }
+        {isPaused === false ? <button className="catFloatingBtn"><Link href="/basket">
           <img src='/imgs/basket.svg' alt="" className="catFloatingBtnImg"/>
           <div className="catFloatingBtnTextCont">
             <p className="categoryBasketBtnText">{basketCount}</p>
           </div>
-        </Link></button>
+        </Link></button> : null }
         
         <div className="cont">
-        <div className="homeContainer">
+        {isPaused === false ? <div className="homeContainer">
             <h1 className="homeHeader">Запчасти для КАМАЗА</h1>
             <div className="catalogCardContHome">
             <div className={isDesktop ? "homeCardCont" : "homeMobileCardCont"}>
@@ -64,7 +65,11 @@ export default function Index() {
                 </div></Link>
             </div>
             </div>
-        </div>
+        </div> : <div className="basketCenterTextCont">
+        <p className="basketCenterText" style={{color: "white"}}>
+          Товары загружаются
+        </p>
+      </div> }
         </div>
     </div>
   )

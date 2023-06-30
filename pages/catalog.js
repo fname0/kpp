@@ -21,21 +21,21 @@ export default function Catalog() {
         <Seo title="Каталог магазина «Всё на КПП»" description="Каталог товаров магазина «Всё на КПП»" keywords="запчасти камаз, купить запчасти камаз, каталог запчастей камаз, всё на кпп, купить детали камаз, мост камаз, клапан камаз, редуктор, КПП, сцепление, кулиса, метизы, датчики, РТИ, подшипники, ZF"/>
         <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
 
-        <div className="homeSearchInputCont">
+        {isPaused === false ? <div className="homeSearchInputCont">
             <input type="text" className="homeSearchInput" placeholder="Поиск..." onChange={event => {searchValue=event.target.value}}/>
             <div className="homeSearchImgCont" onClick={() => {window.location="/search?searchValue="+searchValue}}>
                 <img src='/imgs/search.svg' alt="" className="homeSearchImg"/>
             </div>
-        </div>
-        <button className="contactsFloatingBtn"><Link href="/">
+        </div>  : null }
+        {isPaused === false ? <button className="contactsFloatingBtn"><Link href="/">
           <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
-        </Link></button>
-        <button className="catFloatingBtn"><Link href="/basket">
+        </Link></button> : null }
+        {isPaused === false ? <button className="catFloatingBtn"><Link href="/basket">
           <img src='/imgs/basket.svg' alt="" className="catFloatingBtnImg"/>
           <div className="catFloatingBtnTextCont">
             <p className="categoryBasketBtnText">{basketCount}</p>
           </div>
-        </Link></button>
+        </Link></button> : null }
         <div className="cont">
         {isPaused === false ? <div className="homeContainer">
             <h1 className="homeHeader">Каталог</h1>
