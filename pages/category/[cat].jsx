@@ -9,7 +9,7 @@ import Image from 'next/image';
 export default function ({products}) {
   let IOS = undefined;
   const [step, setStep] = useState(32);
-  let curFirst = 0;
+  let [curFirst, setCurFirst] = 0;
   const [productsToRender, setProductsToRender] = useState(Object.fromEntries(
     Object.entries(products).slice(curFirst, step)
   ));
@@ -27,7 +27,7 @@ export default function ({products}) {
     setCookies(cookie);
     setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length);
     IOS = ['iPad Simulator','iPhone Simulator','iPod Simulator','iPad','iPhone','iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
-    if (!IOS) {setTimeout(() => {setStep(128);
+    if (!IOS) {setTimeout(() => {step=128;setStep(step);
     setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst, step)))}, 100);}
     return function () {
       document.removeEventListener('scroll', scrollHandler)
@@ -35,9 +35,10 @@ export default function ({products}) {
   }, [])
 
   useEffect(() => {
-    console.log("fetching!");
     if (fetching === 1) {
+      console.log("fetching!");
       curFirst+=step/2;
+      setCurFirst(curFirst);
       setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst, curFirst+step)));
     }
     setFetching(0);
