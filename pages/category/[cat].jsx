@@ -39,6 +39,7 @@ export default function ({products}) {
       curFirst+=step/2;
       setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst, curFirst+step)));
     }
+    setFetching(0);
   }, [fetching])
 
   const addBasket = (id, isClicked, setIsClicked) => {
