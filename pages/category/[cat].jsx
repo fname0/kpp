@@ -15,16 +15,27 @@ export default function ({products}) {
   const cat = useRouter().query.cat;
   const catName = {"reductor": "Редукторы", "kpp": "КПП", "scepa": "Сцепление(+кулиса)", "metiz": "Метизы(+датчики, РТИ)", "podshib": "Подшипники", "ZF": "ZF"};
   const {searchValue} = router.query;
+  const [fetching, setFetching] = useState(false);
   
   useEffect(() => {
+    document.addEventListener('scroll', scrollHandler);
     const cookie = new Cookies();
     setCookies(cookie);
     setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length);
-    // axios.get(`https://db-lovat.vercel.app/api/getAllProducts.php?cat=`+cat)
-    // .then(res => {
-    //   setProductsToRender(res.data);
-    // })
+    return function () {
+      document.removeEventListener('scroll', scrollHandler)
+    };
   }, [])
+
+  useEffect(() => {
+    if (fetching) {
+      axios.get(`https://db-lovat.vercel.app/api/?cat=`+cat+`&start=`+toString(productsToRender.length)+`&limit=`+toString(productsToRender.length+32))
+      .then(res => {
+        setProductsToRender([...productsToRender, ...res.data]);
+      })
+      .finally(() => {setFetching(false)})
+    }
+  }, [fetching])
 
   const addBasket = (id, isClicked, setIsClicked) => {
     let basket = cookie.get('basket') ? cookie.get('basket') : [];
@@ -32,6 +43,13 @@ export default function ({products}) {
     if (basket.includes(id) && isClicked) {basket.splice(basket.indexOf(id), 1); setIsClicked(false); setBasketCount(basketCount-1);}
     if (basket.length !== 0) cookie.set('basket', basket);
     else cookie.remove('basket');
+  }
+
+  const scrollHandler = (e) => {
+    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100)
+    {
+      setFetching(true);
+    }
   }
 
   return (
@@ -58,7 +76,7 @@ export default function ({products}) {
 
 export async function getServerSideProps(content) {
     const cat = content.query['cat'];
-    const response = await fetch(cat == "all" ? `https://db-lovat.vercel.app/api/getproducts.php` : `https://db-lovat.vercel.app/api/?cat=`+cat);
+    const response = await fetch(cat == "all" ? `https://db-lovat.vercel.app/api/getproducts.php` : `https://db-lovat.vercel.app/api/?cat=`+cat+`&start=0&limit=32`);
     const products = await response.json();
     return {
         props: {products},
