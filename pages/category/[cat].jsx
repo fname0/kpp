@@ -33,7 +33,7 @@ export default function ({products}) {
     console.log(productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]]);
     console.log(productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]].id);
     if (fetching) {
-      axios.get(`https://db-lovat.vercel.app/api/?cat=`+cat+`&start=`+productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]].id+`&limit=`+(Object.keys(productsToRender).length+32))
+      axios.get(`https://db-lovat.vercel.app/api/?cat=`+cat+`&start=`+productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]].id)
       .then(res => {
         setProductsToRender([...productsToRender, ...res.data]);
       })
@@ -80,7 +80,7 @@ export default function ({products}) {
 
 export async function getServerSideProps(content) {
     const cat = content.query['cat'];
-    const response = await fetch(cat == "all" ? `https://db-lovat.vercel.app/api/getproducts.php` : `https://db-lovat.vercel.app/api/?cat=`+cat+`&start=0&limit=32`);
+    const response = await fetch(cat == "all" ? `https://db-lovat.vercel.app/api/getproducts.php` : `https://db-lovat.vercel.app/api/?cat=`+cat+`&start=0`);
     const products = await response.json();
     return {
         props: {products},
