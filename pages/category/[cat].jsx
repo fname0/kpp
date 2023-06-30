@@ -29,14 +29,9 @@ export default function ({products}) {
 
   useEffect(() => {
     console.log(productsToRender);
-    console.log(Object.keys(productsToRender).length);
-    console.log(productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]]);
-    console.log(productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]].id);
     if (fetching) {
       axios.get(`https://db-lovat.vercel.app/api/?cat=`+cat+`&start=`+productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]].id)
       .then(res => {
-        console.log(...res.data);
-        console.log(...productsToRender);
         setProductsToRender({...productsToRender, ...res.data});
       })
       .finally(() => {setFetching(false)})
