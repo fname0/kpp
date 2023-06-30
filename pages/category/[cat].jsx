@@ -16,6 +16,7 @@ export default function ({products}) {
   const catName = {"reductor": "Редукторы", "kpp": "КПП", "scepa": "Сцепление(+кулиса)", "metiz": "Метизы(+датчики, РТИ)", "podshib": "Подшипники", "ZF": "ZF"};
   const {searchValue} = router.query;
   const [fetching, setFetching] = useState(false);
+  let over = false;
   
   useEffect(() => {
     document.addEventListener('scroll', scrollHandler);
@@ -33,6 +34,7 @@ export default function ({products}) {
       axios.get(`https://db-lovat.vercel.app/api/?cat=`+cat+`&start=`+productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]].id)
       .then(res => {
         setProductsToRender({...productsToRender, ...res.data});
+        if (res.data === "[]") over = true;
       })
       .finally(() => {setFetching(false)})
     }
@@ -47,7 +49,7 @@ export default function ({products}) {
   }
 
   const scrollHandler = (e) => {
-    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100)
+    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100 && !over)
     {
       setFetching(true);
     }
