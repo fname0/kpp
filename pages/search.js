@@ -11,11 +11,15 @@ export default function Search({products}) {
     const [basketCount, setBasketCount] = useState();
     const [cookie, setCookies] = useState();
     const {searchValue} = router.query;
+    const [productsToRender, setProductsToRender] = useState(Object.fromEntries(
+      Object.entries(products).slice(0, 32)
+    ));
 
     useEffect(() => {
         const cookie = new Cookies();
         setCookies(cookie);
         setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length);
+        setProductsToRender(products);
       }, [])
 
   const addBasket = (id, isClicked, setIsClicked) => {
@@ -42,7 +46,7 @@ export default function Search({products}) {
         </Link></button>
         <div className="categoryCont">
             <h1 className="homeHeader">Поиск</h1>
-            <CatalogCards cat={"all"} searchValue={searchValue} products={products} addBasket={addBasket} cookie={cookie}/>
+            <CatalogCards cat={"all"} searchValue={searchValue} products={productsToRender} addBasket={addBasket} cookie={cookie}/>
         </div>
     </div>
   )
