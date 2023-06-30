@@ -39,7 +39,7 @@ export default function Catalog() {
         <div className="homeContainer">
             <h1 className="homeHeader">Каталог</h1>
             <div className={isDesktop ? "homeCardCont" : "catalogCardCont"}>
-                <Link href="/category/reductor" className='homeCard noDec' onClick={() => {typeof window === "undefined" ? null : window.stop()}}>
+                <Link href="/category/reductor" className='homeCard noDec' onClick={() => {window.stop()}}>
                     <div className="homeCardImgCont">
                         <img src='/imgs/reductor.svg' alt="" className="homeCardImg"/>
                     </div>
