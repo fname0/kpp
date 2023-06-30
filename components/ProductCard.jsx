@@ -30,7 +30,7 @@ export default function ProductCard(props) {
         <div className={props.out === "True" ? "productCardOut": isClicked ? "productCardPurchased":"productCard"} onClick={() => addBasket(props.id)}>
             <Link href={"/product/"+ props.id +"?isClicked="+isClicked}><img src="/imgs/about.png" alt="" className="infoImgProductCard" onClick={() => {isUpperBtnClicked=true}}/></Link>
             <div className="productImgCont">
-                <Image src={tryRequire} alt="" loading="lazy" className="productCardImg"/>
+                <Image src={tryRequire()} alt="" loading="lazy" className="productCardImg"/>
             </div>
             <div className="productTextCont">
                 <p className="productTitle">{props.title}</p>
