@@ -38,7 +38,6 @@ export default function ({products}) {
     if (fetching === 1 && Object.keys(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2), curFirst+(step/2*3)))).length !== 0) {
       setCurFirst(curFirst+step/2);
       setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2), curFirst+(step/2*3))));
-      window.scrollTo(0, document.body.scrollHeight / 3);
     }
     setFetching(0);
   }, [fetching])
@@ -53,7 +52,7 @@ export default function ({products}) {
 
   const scrollHandler = (e) => {
     if (Object.keys(products).length <= step) return;
-    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100 && productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]].id !== products[Object.keys(products)[Object.keys(products).length-1]].id)
+    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 10 && productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]].id !== products[Object.keys(products)[Object.keys(products).length-1]].id)
     {
       setFetching(1);
     }
