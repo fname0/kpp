@@ -9,7 +9,7 @@ import Image from 'next/image';
 export default function ({products}) {
   let IOS = undefined;
   const [step, setStep] = useState(32);
-  const [curFirst, setCurFirst] = useState(0);
+  let curFirst = 0;
   const [productsToRender, setProductsToRender] = useState(Object.fromEntries(
     Object.entries(products).slice(curFirst, step)
   ));
@@ -36,7 +36,7 @@ export default function ({products}) {
 
   useEffect(() => {
     if (fetching === 1) {
-      setCurFirst(curFirst+(step/2));
+      curFirst+=step/2;
       setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst, curFirst+step)));
     }
   }, [fetching])
