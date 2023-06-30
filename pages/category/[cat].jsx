@@ -25,7 +25,7 @@ export default function ({products}) {
     const cookie = new Cookies();
     setCookies(cookie);
     setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length);
-    setTimeout(() => {setProductsToRender(products)}, 1000);
+    setTimeout(() => {setProductsToRender(products)}, 100);
     // return function () {
     //   document.removeEventListener('scroll', scrollHandler)
     // };
