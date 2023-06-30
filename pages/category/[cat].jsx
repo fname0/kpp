@@ -35,6 +35,7 @@ export default function ({products}) {
   }, [])
 
   useEffect(() => {
+    console.log("fetching!");
     if (fetching === 1) {
       curFirst+=step/2;
       setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst, curFirst+step)));
