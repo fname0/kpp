@@ -35,10 +35,10 @@ export default function ({products}) {
   }, [])
 
   useEffect(() => {
-    if (fetching === 1) {
-      console.log("fetching!");
+    if (fetching === 1 && Object.keys(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2), curFirst+(step/2*3)))).length !== 0) {
       setCurFirst(curFirst+step/2);
       setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2), curFirst+(step/2*3))));
+      window.scrollTo(0, document.body.scrollHeight / 3);
     }
     setFetching(0);
   }, [fetching])
