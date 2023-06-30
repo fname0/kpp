@@ -18,27 +18,27 @@ export default function ({products}) {
   const [fetching, setFetching] = useState(false);
   let over = false;
   
-  useEffect(() => {
-    document.addEventListener('scroll', scrollHandler);
-    const cookie = new Cookies();
-    setCookies(cookie);
-    setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length);
-    return function () {
-      document.removeEventListener('scroll', scrollHandler)
-    };
-  }, [])
+  // useEffect(() => {
+  //   document.addEventListener('scroll', scrollHandler);
+  //   const cookie = new Cookies();
+  //   setCookies(cookie);
+  //   setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length);
+  //   return function () {
+  //     document.removeEventListener('scroll', scrollHandler)
+  //   };
+  // }, [])
 
-  useEffect(() => {
-    console.log(productsToRender);
-    if (fetching) {
-      axios.get(`https://db-lovat.vercel.app/api/?cat=`+cat+`&start=`+productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]].id)
-      .then(res => {
-        setProductsToRender({...productsToRender, ...res.data});
-        if (res.data === "[]") over = true;
-      })
-      .finally(() => {setFetching(false)})
-    }
-  }, [fetching])
+  // useEffect(() => {
+  //   console.log(productsToRender);
+  //   if (fetching) {
+  //     axios.get(`https://db-lovat.vercel.app/api/?cat=`+cat+`&start=`+productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]].id)
+  //     .then(res => {
+  //       setProductsToRender({...productsToRender, ...res.data});
+  //       if (res.data === "[]") over = true;
+  //     })
+  //     .finally(() => {setFetching(false)})
+  //   }
+  // }, [fetching])
 
   const addBasket = (id, isClicked, setIsClicked) => {
     let basket = cookie.get('basket') ? cookie.get('basket') : [];
