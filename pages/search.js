@@ -19,7 +19,7 @@ export default function Search({products}) {
         const cookie = new Cookies();
         setCookies(cookie);
         setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length);
-        setTimeout(setProductsToRender(products), 1000);
+        setTimeout(() => {setProductsToRender(products)}, 1000);
       }, [])
 
   const addBasket = (id, isClicked, setIsClicked) => {
