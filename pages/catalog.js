@@ -46,33 +46,33 @@ export default function Catalog() {
                     </div>
                     <h2 className="homeCardHeader">Редуктор</h2>
                 </Link>
-                <Link href="/category/kpp" className='homeCard noDec'>
+                <Link href="/category/kpp" className='homeCard noDec' onClick={() => {setIsPaused(true)}}>
                     <div className="homeCardImgCont">
                         <img src='/imgs/kpp.svg' alt="" className="homeCardImg"/>
                     </div>
                     <h2 className="homeCardHeader">КПП</h2>
                 </Link>
-                <Link href="/category/scepa" className='homeCard noDec'>
+                <Link href="/category/scepa" className='homeCard noDec' onClick={() => {setIsPaused(true)}}>
                     <div className="homeCardImgCont">
                         <img src='/imgs/scepa.svg' alt="" className="homeCardImg"/>
                     </div>
                     <h2 className="homeCardHeader">Сцепление</h2>
                     <p className="homeCardHeaderAdvanced">+кулиса</p>
                 </Link>
-                <Link href="/category/metiz" className='homeCard noDec'>
+                <Link href="/category/metiz" className='homeCard noDec' onClick={() => {setIsPaused(true)}}>
                     <div className="homeCardImgCont">
                         <img src='/imgs/metiz.svg' alt="" className="homeCardImg"/>
                     </div>
                     <h2 className="homeCardHeader">Метизы</h2>
                     <p className="homeCardHeaderAdvanced">+датчики, РТИ</p>
                 </Link>
-                <Link href="/category/podshib" className='homeCard noDec'>
+                <Link href="/category/podshib" className='homeCard noDec' onClick={() => {setIsPaused(true)}}>
                     <div className="homeCardImgCont">
                         <img src='/imgs/podshib.svg' alt="" className="homeCardImg"/>
                     </div>
                     <h2 className="homeCardHeader">Подшипники</h2>
                 </Link>
-                <Link href="/category/ZF" className='homeCard noDec'>
+                <Link href="/category/ZF" className='homeCard noDec' onClick={() => {setIsPaused(true)}}>
                     <div className="homeCardImgCont">
                         <img src='/imgs/ZF.svg' alt="" className="homeCardImg"/>
                     </div>
@@ -81,7 +81,7 @@ export default function Catalog() {
             </div>
         </div> : 
         <div className="basketCenterTextCont">
-        <p className="basketCenterText">
+        <p className="basketCenterText" style={{color: "white"}}>
           Товары загружаются
         </p>
       </div>}
