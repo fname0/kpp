@@ -31,7 +31,7 @@ export default function ({products}) {
     console.log(productsToRender);
     console.log(Object.keys(productsToRender).length);
     if (fetching) {
-      axios.get(`https://db-lovat.vercel.app/api/?cat=`+cat+`&start=`+Object.entries(productsToRender).length+`&limit=`+(Object.keys(productsToRender).length+32))
+      axios.get(`https://db-lovat.vercel.app/api/?cat=`+cat+`&start=`+Object.keys(productsToRender).length+`&limit=`+(Object.keys(productsToRender).length+32))
       .then(res => {
         setProductsToRender([...productsToRender, ...res.data]);
       })
