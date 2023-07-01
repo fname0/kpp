@@ -36,14 +36,14 @@ export default function ({products}) {
 
   useEffect(() => {
     if (fetching === 1 && Object.keys(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2), curFirst+(step/2*3)))).length !== 0) {
-      // if (Object.keys(products).length > curFirst+(step/2*3)) {
-      //   setCurFirst(curFirst+step/2);
-      //   setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2)-1, curFirst+(step/2*3)-1)));
-      // }
-      // else {
-      //   setCurFirst(Object.keys(products).length-1-step);
-      //   setProductsToRender(Object.fromEntries(Object.entries(products).slice(Object.keys(products).length-1-step, Object.keys(products).length-1)));
-      // }
+      if (Object.keys(products).length > curFirst+(step/2*3)) {
+        setCurFirst(curFirst+step/2);
+        setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2)-1, curFirst+(step/2*3)-1)));
+      }
+      else {
+        setCurFirst(Object.keys(products).length-1-step);
+        setProductsToRender(Object.fromEntries(Object.entries(products).slice(Object.keys(products).length-1-step, Object.keys(products).length-1)));
+      }
       if (IOS) window.scroll(0, document.getElementById('productCardCont').scrollHeight/3);
       else window.scroll(0, document.getElementById('productCardCont').scrollHeight/3+window.innerHeight*1.5);
       console.log(document.getElementById('productCardCont').scrollHeight/3);
