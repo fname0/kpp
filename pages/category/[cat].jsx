@@ -46,7 +46,7 @@ export default function ({products}) {
         setProductsToRender(Object.fromEntries(Object.entries(products).slice(Object.keys(products).length-1-step, Object.keys(products).length-1)));
       }
       console.log(Object.values(products)[curFirst+step-1]);
-      setTimeout(() => {document.getElementById(Object.values(products)[curFirst+step-1].id).scrollIntoView();}, 1000);
+      setTimeout(() => {document.getElementById(Object.values(products)[curFirst+step-1].id).scrollIntoView();}, 3000);
     }
     setFetching(0);
   }, [fetching])
