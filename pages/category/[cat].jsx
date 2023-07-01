@@ -39,14 +39,14 @@ export default function ({products}) {
       console.log(Object.keys(products).length)
       if (Object.keys(products).length > curFirst+(step/2*3)) {
         setCurFirst(curFirst+step/2);
-        setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2), curFirst+(step/2*3))));
+        setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2)-1, curFirst+(step/2*3)-1)));
       }
       else {
         setCurFirst(Object.keys(products).length-1-step);
         setProductsToRender(Object.fromEntries(Object.entries(products).slice(Object.keys(products).length-1-step, Object.keys(products).length-1)));
       }
-      console.log(products[curFirst+step/2]);
-      location.href="#"+products[curFirst+step/2].id;
+      console.log(Object.values(products)[curFirst+step/2])
+      location.href="#"+Object.values(products)[curFirst+step/2].id;
     }
     setFetching(0);
   }, [fetching])
