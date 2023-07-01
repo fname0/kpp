@@ -60,7 +60,7 @@ export default function ({products}) {
 
   const scrollHandler = (e) => {
     if (Object.keys(products).length <= step) return;
-    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 10 && productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]].id !== products[Object.keys(products)[Object.keys(products).length-1]].id)
+    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < {10} && productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]].id !== products[Object.keys(products)[Object.keys(products).length-1]].id)
     {
       // setContHeight(document.getElementById('productCardCont').scrollHeight);
       setFetching(1);
