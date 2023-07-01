@@ -20,6 +20,7 @@ export default function ({products}) {
   const catName = {"reductor": "Редукторы", "kpp": "КПП", "scepa": "Сцепление(+кулиса)", "metiz": "Метизы(+датчики, РТИ)", "podshib": "Подшипники", "ZF": "ZF"};
   const {searchValue} = router.query;
   const [fetching, setFetching] = useState(0);
+  const [contHeight, setContHeight] = useState(0);
   
   useEffect(() => {
     document.addEventListener('scroll', scrollHandler);
@@ -29,6 +30,7 @@ export default function ({products}) {
     IOS = ['iPad Simulator','iPhone Simulator','iPod Simulator','iPad','iPhone','iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
     if (!IOS) {setTimeout(() => {setStep(128);
     setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst, 128)))}, 100);}
+    setTimeout(() => {setContHeight(document.getElementById('productCardCont').scrollHeight), 200;console.log(document.getElementById('productCardCont').scrollHeight)});
     return function () {
       document.removeEventListener('scroll', scrollHandler)
     };
@@ -49,7 +51,9 @@ export default function ({products}) {
       Element.prototype.documentOffsetTop = function () {
         return this.offsetTop + ( this.offsetParent ? this.offsetParent.documentOffsetTop() : 0 );
       };
-      scrollTo(0, document.getElementById('productCardCont').scrollHeight/3+window.innerHeight*1.5)
+      scrollTo()
+      scrollTo(0, contHeight/3+window.innerHeight*1.5)
+      console.log(document.getElementById('productCardCont').scrollHeight);
     }
     setFetching(0);
   }, [fetching])
