@@ -46,7 +46,11 @@ export default function ({products}) {
         setProductsToRender(Object.fromEntries(Object.entries(products).slice(Object.keys(products).length-1-step, Object.keys(products).length-1)));
       }
       console.log(Object.values(products)[curFirst+step-1]);
-      setTimeout(() => {document.getElementById(Object.values(products)[curFirst+step-1].id).scrollIntoView();}, 3000);
+      Element.prototype.documentOffsetTop = function () {
+        return this.offsetTop + ( this.offsetParent ? this.offsetParent.documentOffsetTop() : 0 );
+      };
+      var top = document.getElementById('productCardCont').documentOffsetTop() - ( window.innerHeight / 3 );
+      window.scrollTo( 0, top );
     }
     setFetching(0);
   }, [fetching])

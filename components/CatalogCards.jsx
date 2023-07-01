@@ -14,7 +14,7 @@ export default function CatalogCards(props) {
   }, [])
 
   return (
-      <div className="productCardCont">
+      <div className="productCardCont" id="productCardCont">
         <div className="catSearchInputCont">
             <input type="text" className="homeSearchInput" defaultValue={searchValue === undefined ? null : searchValue} placeholder={"Поиск..."} onChange={(event) => {searchValueInput=event.target.value}}/>
             <div className="homeSearchImgCont" onClick={() => {setSearchValue(searchValueInput)}}>
