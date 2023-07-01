@@ -45,7 +45,7 @@ export default function ({products}) {
       //   setCurFirst(Object.keys(products).length-1-step);
       //   setProductsToRender(Object.fromEntries(Object.entries(products).slice(Object.keys(products).length-1-step, Object.keys(products).length-1)));
       // }
-      window.scroll(0, 1000);
+      window.scroll(0, document.getElementById('productCardCont').scrollHeight/3+window.innerHeight*1.5);
       console.log(document.getElementById('productCardCont').scrollHeight/3);
       console.log(document.getElementById('productCardCont').scrollHeight/3+window.innerHeight*1.5);
     }
