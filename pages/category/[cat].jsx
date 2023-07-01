@@ -37,7 +37,6 @@ export default function ({products}) {
 
   useEffect(() => {
     if (fetching === 1 && Object.keys(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2), curFirst+(step/2*3)))).length !== 0) {
-      console.log(Object.keys(products).length)
       if (Object.keys(products).length > curFirst+(step/2*3)) {
         setCurFirst(curFirst+step/2);
         setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2)-1, curFirst+(step/2*3)-1)));
@@ -46,12 +45,9 @@ export default function ({products}) {
         setCurFirst(Object.keys(products).length-1-step);
         setProductsToRender(Object.fromEntries(Object.entries(products).slice(Object.keys(products).length-1-step, Object.keys(products).length-1)));
       }
-      console.log(Object.values(products)[curFirst+step-1]);
-      Element.prototype.documentOffsetTop = function () {
-        return this.offsetTop + ( this.offsetParent ? this.offsetParent.documentOffsetTop() : 0 );
-      };
-      scrollTo(0, contHeight/3+window.innerHeight*1.5);
+      scrollTo(0, document.getElementById('productCardCont').scrollHeight+window.innerHeight*1.5);
       console.log(document.getElementById('productCardCont').scrollHeight);
+      console.log(document.getElementById('productCardCont').scrollHeight+window.innerHeight*1.5);
     }
     setFetching(0);
   }, [fetching])
@@ -68,7 +64,7 @@ export default function ({products}) {
     if (Object.keys(products).length <= step) return;
     if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100 && productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]].id !== products[Object.keys(products)[Object.keys(products).length-1]].id)
     {
-      setContHeight(document.getElementById('productCardCont').scrollHeight);
+      // setContHeight(document.getElementById('productCardCont').scrollHeight);
       setFetching(1);
     }
   }
