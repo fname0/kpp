@@ -689,7 +689,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
     height: var(--productInfoCardH);
 }
 
-@supports (-webkit-touch-callout: none) {
+@media only screen and (max-device-width: 1024px) {
     :root {
         --productCardContGap: 1vw;
         --productImgContH: 12vw;
