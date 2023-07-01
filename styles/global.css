@@ -689,18 +689,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
     height: var(--productInfoCardH);
 }
 
-@media only screen and (max-device-width: 1024px) {
-    :root {
-        --productCardContGap: 5vw;
-    --productImgContH: 20vw;
-    --productCardImgH: 15vw;
-    --productCardH: 50vw;
-    --productCardW: 40vw;
-    --productCardM: 0;
-    }
-}
-
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape)  {
     :root {
         --productInfoCardH: 10vw;
         --infoImgProductCard: 2vw;
@@ -731,5 +720,16 @@ border: 1px solid rgba(255, 255, 255, 0.3);
         --homeCardW: 20vw;
         --homeCardContFD: row;
         --homeCardImgSize: 128px;
+    }
+}
+
+@media only screen {
+    :root {
+        --productCardContGap: 5vw;
+    --productImgContH: 20vw;
+    --productCardImgH: 15vw;
+    --productCardH: 50vw;
+    --productCardW: 40vw;
+    --productCardM: 0;
     }
 }
