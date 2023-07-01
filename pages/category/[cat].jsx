@@ -49,8 +49,7 @@ export default function ({products}) {
       Element.prototype.documentOffsetTop = function () {
         return this.offsetTop + ( this.offsetParent ? this.offsetParent.documentOffsetTop() : 0 );
       };
-      var top = document.getElementById('productCardCont').documentOffsetTop() - ( window.innerHeight / 3 );
-      window.scrollTo( 0, top );
+      scrollTo(0, document.getElementById('productCardCont').scrollHeight/3+window.innerHeight*1.5)
     }
     setFetching(0);
   }, [fetching])
