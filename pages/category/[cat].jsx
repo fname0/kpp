@@ -20,12 +20,6 @@ export default function ({products}) {
     setCookies(cookie);
     setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length); 
     setIOS((['iPad Simulator','iPhone Simulator','iPod Simulator','iPad','iPhone','iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)));
-    if ((['iPad Simulator','iPhone Simulator','iPod Simulator','iPad','iPhone','iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)))
-    {
-      setProductsToRender(Object.fromEntries(
-        Object.entries(products).slice(0, 32)
-      ));
-    }
   }, [])
 
   // useEffect(() => {
