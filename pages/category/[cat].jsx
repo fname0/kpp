@@ -45,7 +45,8 @@ export default function ({products}) {
         setCurFirst(Object.keys(products).length-1-step);
         setProductsToRender(Object.fromEntries(Object.entries(products).slice(Object.keys(products).length-1-step, Object.keys(products).length-1)));
       }
-      location.href="#"+products[curFirst+(step/2)-1].id;
+      console.log(products[curFirst+step/2]);
+      location.href="#"+products[curFirst+step/2].id;
     }
     setFetching(0);
   }, [fetching])
