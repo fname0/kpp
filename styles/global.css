@@ -729,6 +729,6 @@ border: 1px solid rgba(255, 255, 255, 0.3);
     :root {
     --productCardH: 40vw;
     --productCardW: 20vw;
-    --infoImgProductCard: 4vw;
+    --infoImgProductCard: 2.5vw;
     }
 }
