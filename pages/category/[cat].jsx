@@ -34,6 +34,7 @@ export default function ({products}) {
 
   useEffect(() => {
     if (fetching === 1 && Object.keys(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2), curFirst+(step/2*3)))).length !== 0) {
+      fetching = 3
       if (Object.keys(products).length > curFirst+(step/2*3)) {
         setCurFirst(curFirst+step/2);
         setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2)-1, curFirst+(step/2*3)-1)));
@@ -42,9 +43,9 @@ export default function ({products}) {
         setCurFirst(Object.keys(products).length-1-step);
         setProductsToRender(Object.fromEntries(Object.entries(products).slice(Object.keys(products).length-1-step, Object.keys(products).length-1)));
       }
+      setTimeout(()=>{setFetching(0)}, 500);
       if (step === 32) window.scroll(0, document.getElementById('productCardCont').scrollHeight/3);
     }
-    setFetching(0);
   }, [fetching])
 
   const addBasket = (id, isClicked, setIsClicked) => {
@@ -69,19 +70,23 @@ export default function ({products}) {
         <Seo title={catName[cat]+" на КАМАЗ"} description={"Купить "+catName[cat].toLowerCase()+" на КАМАЗ"} keywords={"запчасти камаз, купить запчасти камаз, "+catName[cat].toLowerCase()+", "+"купить "+catName[cat].toLowerCase()}/>
         <div style={{position:"fixed",width:"100vw",height:"100vh"}}><Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/></div>
 
-        <button className="contactsFloatingBtn"><Link href="/">
+        {fetching === 3 ? <button className="contactsFloatingBtn"><Link href="/">
           <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
-        </Link></button>
-        <button className="catFloatingBtn"><Link href="/basket">
+        </Link></button> : null }
+        {fetching === 3 ? <button className="catFloatingBtn"><Link href="/basket">
           <img src='/imgs/basket.svg' alt="" className="catFloatingBtnImg"/>
           <div className="catFloatingBtnTextCont">
             <p className="categoryBasketBtnText">{basketCount}</p>
           </div>
-        </Link></button>
-        <div className="categoryCont">
+        </Link></button> : null }
+        {fetching === 3 ? <div className="categoryCont">
             <h1 className="homeHeader">{catName[cat]}</h1>
             <CatalogCards cat={cat} addBasket={addBasket} products={productsToRender} searchValue={searchValue}/>
-        </div>
+        </div> : <div className="basketCenterTextCont">
+        <p className="basketCenterText" style={{color: "white"}}>
+          Товары загружаются
+        </p>
+      </div>}
     </div>
   )
 }
