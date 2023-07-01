@@ -13,32 +13,12 @@ export default function ({products}) {
   const cat = useRouter().query.cat;
   const catName = {"reductor": "Редукторы", "kpp": "КПП", "scepa": "Сцепление(+кулиса)", "metiz": "Метизы(+датчики, РТИ)", "podshib": "Подшипники", "ZF": "ZF"};
   const {searchValue} = router.query;
-  const [IOS, setIOS] = useState(true);
   
   useEffect(() => {
     const cookie = new Cookies();
     setCookies(cookie);
     setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length); 
-    setIOS((['iPad Simulator','iPhone Simulator','iPod Simulator','iPad','iPhone','iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)));
   }, [])
-
-  // useEffect(() => {
-  //   if (fetching === 1 && Object.keys(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2), curFirst+(step/2*3)))).length !== 0) {
-  //     if (Object.keys(products).length > curFirst+(step/2*3)) {
-  //       setCurFirst(curFirst+step/2);
-  //       setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2)-1, curFirst+(step/2*3)-1)));
-  //     }
-  //     else {
-  //       setCurFirst(Object.keys(products).length-1-step);
-  //       setProductsToRender(Object.fromEntries(Object.entries(products).slice(Object.keys(products).length-1-step, Object.keys(products).length-1)));
-  //     }
-  //     if (step === 32) window.scroll(0, document.getElementById('productCardCont').scrollHeight/3);
-  //     else window.scroll(0, document.getElementById('productCardCont').scrollHeight/3+window.innerHeight*1.5);
-  //     console.log(document.getElementById('productCardCont').scrollHeight/3);
-  //     console.log(document.getElementById('productCardCont').scrollHeight/3+window.innerHeight*1.5);
-  //   }
-  //   setFetching(0);
-  // }, [fetching])
 
   const addBasket = (id, isClicked, setIsClicked) => {
     let basket = cookie.get('basket') ? cookie.get('basket') : [];
@@ -47,16 +27,6 @@ export default function ({products}) {
     if (basket.length !== 0) cookie.set('basket', basket);
     else cookie.remove('basket');
   }
-
-  // const scrollHandler = (e) => {
-  //   if (Object.keys(products).length <= step) return;
-  //   k = step === 32 ? 3 : 50;
-  //   if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < k && productsToRender[Object.keys(productsToRender)[Object.keys(productsToRender).length-1]].id !== products[Object.keys(products)[Object.keys(products).length-1]].id)
-  //   {
-  //     // setContHeight(document.getElementById('productCardCont').scrollHeight);
-  //     setFetching(1);
-  //   }
-  // }
 
   return (
     <div className="App">
@@ -74,7 +44,7 @@ export default function ({products}) {
         </Link></button>
         <div className="categoryCont">
             <h1 className="homeHeader">{catName[cat]}</h1>
-            <CatalogCards cat={cat} addBasket={addBasket} products={products} searchValue={searchValue} IOS={IOS}/>
+            <CatalogCards cat={cat} addBasket={addBasket} products={products} searchValue={searchValue}/>
         </div>
     </div>
   )
