@@ -36,8 +36,16 @@ export default function ({products}) {
 
   useEffect(() => {
     if (fetching === 1 && Object.keys(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2), curFirst+(step/2*3)))).length !== 0) {
-      setCurFirst(curFirst+step/2);
-      setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2), curFirst+(step/2*3))));
+      console.log(Object.keys(products).length)
+      if (Object.keys(products).length > curFirst+(step/2*3)) {
+        setCurFirst(curFirst+step/2);
+        setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2), curFirst+(step/2*3))));
+      }
+      else {
+        setCurFirst(Object.keys(products).length-1-step);
+        setProductsToRender(Object.fromEntries(Object.entries(products).slice(Object.keys(products).length-1-step, Object.keys(products).length-1)));
+      }
+      location.href="#"+Object.entries(products)[curFirst+(step/2)-1].id;
     }
     setFetching(0);
   }, [fetching])
