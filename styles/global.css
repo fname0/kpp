@@ -689,6 +689,17 @@ border: 1px solid rgba(255, 255, 255, 0.3);
     height: var(--productInfoCardH);
 }
 
+@supports (-webkit-touch-callout: none) {
+    :root {
+        --productCardContGap: 1vw;
+        --productImgContH: 12vw;
+        --productCardImgH: 8vw;
+        --productCardH: 25vw;
+        --productCardW: 15vw;
+        --productCardM: 4vw;
+    }
+}
+
 @media screen and (orientation: landscape) {
     :root {
         --productInfoCardH: 10vw;
