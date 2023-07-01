@@ -667,6 +667,8 @@ border: 1px solid rgba(255, 255, 255, 0.3);
     height: var(--infoImgProductCard);
     right: 7px;
     top: 7px;
+    bottom: 0px;
+    left: 0px;
     z-index: 1;
 }
 
