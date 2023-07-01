@@ -7,7 +7,7 @@ import Seo from "../../components/Seo";
 import Image from 'next/image';
 
 export default function ({products}) {
-  let IOS = undefined;
+  const [IOS, setIOS] = undefined;
   const [step, setStep] = useState(32);
   const [curFirst, setCurFirst] = useState(0);
   const [productsToRender, setProductsToRender] = useState(Object.fromEntries(
@@ -26,8 +26,8 @@ export default function ({products}) {
     const cookie = new Cookies();
     setCookies(cookie);
     setBasketCount(cookie.get('basket') === undefined ? 0 : cookie.get('basket').length);
-    IOS = ['iPad Simulator','iPhone Simulator','iPod Simulator','iPad','iPhone','iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
-    if (!IOS) {setTimeout(() => {setStep(128);
+    setIOS(['iPad Simulator','iPhone Simulator','iPod Simulator','iPad','iPhone','iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document));
+    if (!['iPad Simulator','iPhone Simulator','iPod Simulator','iPad','iPhone','iPod'].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)) {setTimeout(() => {setStep(128);
     setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst, 128)))}, 100);}
     return function () {
       document.removeEventListener('scroll', scrollHandler)
@@ -44,7 +44,8 @@ export default function ({products}) {
       //   setCurFirst(Object.keys(products).length-1-step);
       //   setProductsToRender(Object.fromEntries(Object.entries(products).slice(Object.keys(products).length-1-step, Object.keys(products).length-1)));
       // }
-      window.scroll(0, document.getElementById('productCardCont').scrollHeight/9*4);
+      if (IOS) window.scroll(0, document.getElementById('productCardCont').scrollHeight/3);
+      else window.scroll(0, document.getElementById('productCardCont').scrollHeight/3+window.innerHeight*1.5);
       console.log(document.getElementById('productCardCont').scrollHeight/3);
       console.log(document.getElementById('productCardCont').scrollHeight/3+window.innerHeight*1.5);
     }
