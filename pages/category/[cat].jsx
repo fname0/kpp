@@ -45,8 +45,8 @@ export default function ({products}) {
         setCurFirst(Object.keys(products).length-1-step);
         setProductsToRender(Object.fromEntries(Object.entries(products).slice(Object.keys(products).length-1-step, Object.keys(products).length-1)));
       }
-      console.log(Object.values(products)[curFirst+step/2])
-      location.href="#"+Object.values(products)[curFirst+step/2].id;
+      console.log(Object.values(products)[curFirst+step-1]);
+      document.getElementById(Object.values(products)[curFirst+step-1].id).scrollIntoView();
     }
     setFetching(0);
   }, [fetching])
