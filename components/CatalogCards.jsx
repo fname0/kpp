@@ -6,6 +6,8 @@ export default function CatalogCards(props) {
   let searchValueInput = '';
   const [searchValue, setSearchValue] = useState('');
   const [basket, setBasket] = useState([]);
+  const [page, setPage] = useState(1);
+  const products = props.products;
 
   useEffect(() => {
     const cookie = new Cookies;
@@ -21,7 +23,7 @@ export default function CatalogCards(props) {
                 <img src="/imgs/search.svg" alt="" className="homeSearchImg"/>
             </div>
         </div>
-          {props.products.length != 0 ? Object.entries(props.products).filter(name => searchValue.toLowerCase().split(' ').every(v => (name[1].title+" "+name[1].num).toLowerCase().includes(v))).map((product, i) => (
+          {Object.keys(products).length !== 32 ? Object.entries(products).filter(name => searchValue.toLowerCase().split(' ').every(v => (name[1].title+" "+name[1].num).toLowerCase().includes(v))).map((product) => (
       <ProductCard
         addBasket={props.addBasket}
         key={product[1].id}
@@ -32,7 +34,29 @@ export default function CatalogCards(props) {
         price={product[1].price}
         isClicked={basket.includes(product[1].id)}
       />
-    )) : "Секунду, товары грузятся..."}
+    )) : searchValue.replaceAll(/\s/g, '') === '' ? Object.entries(products).slice(32*(page-1), 32*page).map((product) => (
+      <ProductCard
+        addBasket={props.addBasket}
+        key={product[1].id}
+        id={product[1].id}
+        out={product[1].out}
+        num={product[1].num}
+        title={product[1].title}
+        price={product[1].price}
+        isClicked={basket.includes(product[1].id)}
+      />
+    )) : Object.entries(products).filter(name => searchValue.toLowerCase().split(' ').every(v => (name[1].title+" "+name[1].num).toLowerCase().includes(v))).slice(32*(page-1), 32*page).map((product) => (
+      <ProductCard
+        addBasket={props.addBasket}
+        key={product[1].id}
+        id={product[1].id}
+        out={product[1].out}
+        num={product[1].num}
+        title={product[1].title}
+        price={product[1].price}
+        isClicked={basket.includes(product[1].id)}
+      />
+    ))}
       </div>
   );
 }
