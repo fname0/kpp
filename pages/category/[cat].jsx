@@ -20,9 +20,11 @@ export default function ({products}) {
   const catName = {"reductor": "Редукторы", "kpp": "КПП", "scepa": "Сцепление(+кулиса)", "metiz": "Метизы(+датчики, РТИ)", "podshib": "Подшипники", "ZF": "ZF"};
   const {searchValue} = router.query;
   const [fetching, setFetching] = useState(0);
-  const [contHeight, setContHeight] = useState(0);
+  const [vh, setVH] = useState(0);
   
   useEffect(() => {
+    console.log(window.innerHeight);
+    setVH(window.innerHeight);
     document.addEventListener('scroll', scrollHandler);
     const cookie = new Cookies();
     setCookies(cookie);
@@ -45,9 +47,10 @@ export default function ({products}) {
       //   setCurFirst(Object.keys(products).length-1-step);
       //   setProductsToRender(Object.fromEntries(Object.entries(products).slice(Object.keys(products).length-1-step, Object.keys(products).length-1)));
       // }
-      window.scroll(0, document.getElementById('productCardCont').scrollHeight/3+document.body.clientHeight*1.5);
+      window.scroll(0, document.getElementById('productCardCont').scrollHeight/3+vh*1.5);
       console.log(document.getElementById('productCardCont').scrollHeight/3);
-      console.log(document.getElementById('productCardCont').scrollHeight/3+document.body.clientHeight*1.5);
+      console.log(document.getElementById('productCardCont').scrollHeight/3+vh*1.5);
+      console.log(window.innerHeight);
     }
     setFetching(0);
   }, [fetching])
