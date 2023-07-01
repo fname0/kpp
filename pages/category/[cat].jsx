@@ -34,7 +34,7 @@ export default function ({products}) {
 
   useEffect(() => {
     if (fetching === 1 && Object.keys(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2), curFirst+(step/2*3)))).length !== 0) {
-      fetching = 3
+      setFetching(3)
       if (Object.keys(products).length > curFirst+(step/2*3)) {
         setCurFirst(curFirst+step/2);
         setProductsToRender(Object.fromEntries(Object.entries(products).slice(curFirst+(step/2)-1, curFirst+(step/2*3)-1)));
