@@ -7,7 +7,7 @@ export default function AdminCards(props) {
   const [searchValue, setSearchValue] = useState("");
 
     useEffect(() => {
-    axios.get(`https://db-lovat.vercel.app/api/getproducts.php`)
+    axios.get(new URLSearchParams(window.location.search).get('isClicked') === undefined ? `https://db-lovat.vercel.app/api/getproducts.php` : `https://db-lovat.vercel.app/api/?cat=`+new URLSearchParams(window.location.search).get('cat')+`&start=0`)
         .then(res => {
             setProducts(res.data);
         })
