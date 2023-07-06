@@ -263,7 +263,7 @@ backdrop-filter: blur(0px);
 }
 
 .productCardImg {
-    height: var(--productCardImgH);
+    max-height: var(--productCardImgH);
     max-width: 80%;
 }
 
