@@ -8,6 +8,7 @@ export default function ({product}) {
     const [cookie, setCookie] = useState();
     const [purchased, setPurchased] = useState();
     const [basketCount, setBasketCount] = useState();
+    const [isBigImgOpened, setIsBigImgOpened] = useState(false);
 
     const addBasket = () => {
         if (product.out === "True") return;
@@ -37,7 +38,7 @@ export default function ({product}) {
     return (
         <div className="App">
             <Seo title={product.title+'('+product.num+') за '+ product.price+'₽'} description={'Купить '+product.title+'('+product.num+')'+' за '+product.price+"₽"} keywords={"запчасти камаз, купить запчасти камаз, "+product.title+", "+product.num+", "+{"reductor": "Редукторы", "kpp": "КПП", "scepa": "Сцепление(+кулиса)", "metiz": "Метизы(+датчики, РТИ)", "podshib": "Подшипники", "ZF": "ZF"}[product.cat]}/>
-            <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}}/>
+            <Image src='/imgs/kamazHeader.jpg' placeholder="blur" sizes="100vw" fill quality={100} style={{objectFit: "cover"}} onClick={() => {setIsBigImgOpened(true)}}/>
 
             <button className="contactsFloatingBtn"><Link href="/">
                 <img src='/imgs/home.svg' alt="" className="contactsFloatingBtnImg"/>
@@ -63,9 +64,9 @@ export default function ({product}) {
             </div>
             </div>
 
-            <div className="bigImgCont">
+            {isBigImgOpened ? <div className="bigImgCont" onClick={() => {setIsBigImgOpened(false)}}>
                 <Image src={tryRequire()} placeholder="blur" alt="" className="bigImg"/>
-            </div>
+            </div> : null }
         </div>
     )
 }
