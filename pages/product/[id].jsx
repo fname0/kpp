@@ -62,6 +62,10 @@ export default function ({product}) {
                 <button className="basketBuyBtn" onClick={() => addBasket()}>{purchased === "true" ? "Удалить из корзины" : "В корзину"}</button>
             </div>
             </div>
+
+            <div className="bigImgCont">
+                <Image src={tryRequire()} placeholder="blur" alt="" className="bigImg"/>
+            </div>
         </div>
     )
 }

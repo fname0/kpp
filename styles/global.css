@@ -726,6 +726,26 @@ border: 1px solid rgba(255, 255, 255, 0.3);
     }
 }
 
+.bigImgCont {
+    position: absolute;
+    top: 0;
+    height: 100svh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bigImg {
+    width: 100vw;
+    height: 100svh;
+    max-width: 560px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 @media only screen and (hover: none) and (pointer: coarse) and (orientation: landscape) {
     :root {
     --productCardH: 40vw;
