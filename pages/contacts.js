@@ -31,7 +31,7 @@ export default function Contacts() {
         <div className="homeContainer">
             <h1 className="homeHeader">Контакты</h1>
             <div className="contactsCont">
-                <a href="tel:+79287758989" className="notextdecor">+79287758989</a>
+                <a href="tel:+79969057923" className="notextdecor">+79969057923</a>
                 <a href="mailto:simelnik@mail.ru" className="notextdecor">simelnik@mail.ru</a>
             </div>
             <div className={styles.yaFirst}>
